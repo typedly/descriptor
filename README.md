@@ -23,13 +23,13 @@ A TypeScript type definitions package for **property descriptor**.
 - [Installation](#installation)
 - [Api](#api)
   - [Interfaces](#interfaces)
-    - `AccessorDescriptor`
-    - `CommonDescriptor`
-    - `DataDescriptor`
+    - `AccessorPropertyDescriptor`
+    - `CommonPropertyDescriptor`
+    - `DataPropertyDescriptor`
   - [Types](#types)
-    - `AnyDescriptor`
+    - `AnyPropertyDescriptor`
     - `ObjectPropertyDescriptor`
-    - `ThisAccessorDescriptor`
+    - `ThisAccessorPropertyDescriptor`
 - [Contributing](#contributing)
 - [Code of Conduct](#code-of-conduct)
 - [Git](#git)
@@ -48,27 +48,27 @@ npm install @typedly/descriptor --save-peer
 ```typescript
 import {
   // Interface.
-  AccessorDescriptor,
-  CommonDescriptor,
-  DataDescriptor,
+  AccessorPropertyDescriptor,
+  CommonPropertyDescriptor,
+  DataPropertyDescriptor,
   // Type.
-  AnyDescriptor,
+  AnyPropertyDescriptor,
   ObjectPropertyDescriptors,
-  ThisAccessorDescriptor
+  ThisAccessorPropertyDescriptor
 } from '@typedly/descriptor';
 ```
 
 ### Interfaces
 
-- [AccessorDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-descriptor.interface.ts),
-- [CommonDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-descriptor.interface.ts)
-- [DataDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-descriptor.interface.ts)
+- [AccessorPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-property-descriptor.interface.ts),
+- [CommonPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-property-descriptor.interface.ts)
+- [DataPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
 
 ### Types
 
-- [AnyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/type/any-descriptor.type.ts)
+- [AnyPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/type/any-property-descriptor.type.ts)
 - [ObjectPropertyDescriptors](https://github.com/typedly/descriptor/blob/main/src/lib/type/object-property-descriptors.type.ts)
-- [ThisAccessorDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-descriptor.type.ts)
+- [ThisAccessorPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-property-descriptor.type.ts)
 
 ## Contributing
 
