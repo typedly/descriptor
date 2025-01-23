@@ -60,9 +60,9 @@ import {
 
 ### Interfaces
 
-- [AccessorDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-descriptor.type.ts),
-- [CommonDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-descriptor.type.ts)
-- [DataDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-descriptor.type.ts)
+- [AccessorDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-descriptor.interface.ts),
+- [CommonDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-descriptor.interface.ts)
+- [DataDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-descriptor.interface.ts)
 
 ### Types
 
