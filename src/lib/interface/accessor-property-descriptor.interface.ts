@@ -3,11 +3,11 @@
  * used to define or modify properties with getter and setter functions of the `Value` type.
  * For the accessor descriptor with also the object type, please use the type `ThisAccessorDescriptor<Value, Obj>`.
  * @export
- * @interface AccessorDescriptor
+ * @interface AccessorPropertyDescriptor
  * @template Value The type of the value accessed by the property.
  * @extends {Pick<PropertyDescriptor, 'configurable' | 'enumerable'>}
  */
-export interface AccessorDescriptor<Value>
+export interface AccessorPropertyDescriptor<Value>
   extends Pick<PropertyDescriptor, 'configurable' | 'enumerable'> {
 
     /**
