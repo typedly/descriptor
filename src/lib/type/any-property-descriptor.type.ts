@@ -1,7 +1,7 @@
 // Interface.
-import { DataDescriptor } from '../interface/data-descriptor.interface';
+import { DataPropertyDescriptor } from '../interface/data-property-descriptor.interface';
 // Type.
-import { ThisAccessorDescriptor } from './this-accessor-descriptor.type';
+import { ThisAccessorPropertyDescriptor } from './this-accessor-property-descriptor.type';
 /**
  * @description Represents a union of an accessor descriptor and a data descriptor. This type combines both getter/setter functions 
  * from `ThisAccessorDescriptor` and the `value` and `writable` attributes from `DataDescriptor`. 
@@ -10,4 +10,4 @@ import { ThisAccessorDescriptor } from './this-accessor-descriptor.type';
  * @template Value 
  * @template {object} [Obj=object] 
  */
-export type AnyDescriptor<Value, Obj extends object = object> = ThisAccessorDescriptor<Value, Obj> & DataDescriptor<Value>;
+export type AnyPropertyDescriptor<Value, Obj extends object = object> = ThisAccessorPropertyDescriptor<Value, Obj> & DataPropertyDescriptor<Value>;
