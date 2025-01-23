@@ -1,3 +1,3 @@
-export type { AccessorDescriptor } from './accessor-descriptor.interface';
-export type { CommonDescriptor } from './common-descriptor.interface';
-export type { DataDescriptor } from './data-descriptor.interface';
+export type { AccessorPropertyDescriptor } from './accessor-property-descriptor.interface';
+export type { CommonPropertyDescriptor } from './common-property-descriptor.interface';
+export type { DataPropertyDescriptor } from './data-property-descriptor.interface';

@@ -1,6 +1,6 @@
 {
   "name": "@typedly/descriptor",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": "wwwdev.io <dev@wwwdev.io>",
   "description": "A TypeScript type definitions package for property descriptor.",
   "license": "MIT",
@@ -24,9 +24,9 @@
   "keywords": [
     "@typedly",
     "@typedly/descriptor",
-    "AccessorDescriptor",
-    "CommonDescriptor",
-    "DataDescriptor",
+    "AccessorPropertyDescriptor",
+    "CommonPropertyDescriptor",
+    "DataPropertyDescriptor",
     "accessor descriptor",
     "any descriptor",
     "common descriptor",
