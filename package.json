@@ -24,8 +24,13 @@
   "keywords": [
     "@typedly",
     "@typedly/descriptor",
-    "success",
-    "failure"
+    "AccessorDescriptor",
+    "CommonDescriptor",
+    "DataDescriptor",
+    "accessor descriptor",
+    "any descriptor",
+    "common descriptor",
+    "data descriptor"
   ],
   "funding": [
     {
