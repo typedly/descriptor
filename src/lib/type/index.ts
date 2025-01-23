@@ -1,2 +1,2 @@
 // Public.
-export type { ThisAccessorDescriptor } from './this-accessor-descriptor.type';
+export type { ThisAccessorPropertyDescriptor } from './this-accessor-property-descriptor.type';

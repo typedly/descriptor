@@ -3,11 +3,11 @@
  */
 export type {
   // Interface.
-  AccessorDescriptor,
-  CommonDescriptor,
-  DataDescriptor,
+  AccessorPropertyDescriptor,
+  CommonPropertyDescriptor,
+  DataPropertyDescriptor,
   // Type.
-  AnyDescriptor,
+  AnyPropertyDescriptor,
   ObjectPropertyDescriptors,
-  ThisAccessorDescriptor
+  ThisAccessorPropertyDescriptor
 } from './lib';
