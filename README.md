@@ -14,7 +14,7 @@
 [![GitHub issues][typedly-badge-issues]][typedly-issues]
 [![GitHub license][typedly-badge-license]][typedly-license]
 
-**Version:** v2.0.0
+**Version:** v3.0.0
 
 A TypeScript type definitions package for **property descriptor**.
 
