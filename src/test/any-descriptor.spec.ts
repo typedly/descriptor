@@ -1,11 +1,11 @@
-import { AnyDescriptor } from "../lib";
+import { AnyPropertyDescriptor } from "../lib";
 
 interface Person {
   name: string;
   age: number;
 }
 
-const descriptor: AnyDescriptor<string, Person> = {
+const descriptor: AnyPropertyDescriptor<string, Person> = {
   // Accessor behavior (getter and setter)
   get: function() {
     return this.name;
