@@ -13,4 +13,4 @@ import { ThisAccessorPropertyDescriptor } from './this-accessor-property-descrip
 export type AnyPropertyDescriptor<
   V,
   O
-> = ThisAccessorPropertyDescriptor<V, O> & DataPropertyDescriptor<V>;
+> = ThisAccessorPropertyDescriptor<V, O> | DataPropertyDescriptor<V>;
