@@ -3,7 +3,7 @@
   <img
     src="https://avatars.githubusercontent.com/u/189665258?s=400&u=712e292bae048947d1f7d2020d7d38875c40e63a&v=4"
     width="20%"
-    title="@typedly/affix - A collection of TypeScript packages for precise, type-safe development."
+    title="@typedly/descriptor - A TypeScript type definitions package for property descriptor."
   />
 </a>
 
