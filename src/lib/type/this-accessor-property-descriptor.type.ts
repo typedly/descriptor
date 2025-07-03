@@ -1,9 +1,12 @@
 // Interface.
 import { AccessorPropertyDescriptor } from '../interface/accessor-property-descriptor.interface';
 /**
- * @description Represents the `AccessorPropertyDescriptor` interface as a type cause of ease of use `this` of an `Obj` type in the `get()` and `set()` methods.
+ * @description Represents the `AccessorPropertyDescriptor` interface as a type cause of ease of use `this` of an `O` type in the `get()` and `set()` methods.
  * @export
- * @template Value 
- * @template {object} Obj 
+ * @template V The type of the value accessed by the property.
+ * @template O The type of the object containing the property.
  */
-export type ThisAccessorPropertyDescriptor<Value, Obj extends object> = AccessorPropertyDescriptor<Value> & ThisType<Obj>;
+export type ThisAccessorPropertyDescriptor<
+  V,
+  O
+> = AccessorPropertyDescriptor<V> & ThisType<O>;

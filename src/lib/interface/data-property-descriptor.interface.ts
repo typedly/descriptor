@@ -1,21 +1,31 @@
+// Interface.
+import { CommonPropertyDescriptor } from "./common-property-descriptor.interface";
 /**
  * @description Represents a data property descriptor, which describes the attributes of a property that holds a specific `value`.
  * @export
  * @interface DataPropertyDescriptor
- * @template Value The type of the value held by the property.
- * @extends {Pick<PropertyDescriptor, 'configurable' | 'enumerable'>}
+ * @template V The type of the value held by the property.
+ * @template {boolean} [C=boolean] The type of the configurable.
+ * @template {boolean} [E=boolean] The type of the enumerable.
+ * @template {boolean} [W=boolean] The type of the writable.
+ * @extends {CommonPropertyDescriptor<C, E>}
  */
-export interface DataPropertyDescriptor<Value>
-  extends Pick<PropertyDescriptor, 'configurable' | 'enumerable'> {  
+export interface DataPropertyDescriptor<
+  V,
+  C extends boolean = boolean,
+  E extends boolean = boolean,
+  W extends boolean = boolean
+>
+  extends CommonPropertyDescriptor<C, E> {
   /**
-   * @description Indicates if the value of the property can be changed. Defaults to `false`.
-   * @type {?boolean}
+   * @description Indicates if the value of the property can be changed. Defaults to `boolean`.
+   * @type {?W}
    */
-  writable?: boolean;
+  writable?: W;
 
   /**
-   * @description The value of generic type variable `Value` associated with the property.
-   * @type {?Value}
+   * @description The value of generic type variable `V` associated with the property.
+   * @type {?V}
    */
-  value?: Value;
+  value?: V;
 }
