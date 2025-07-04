@@ -71,7 +71,7 @@ import {
 
 - [AnyPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/type/any-property-descriptor.type.ts)
 - [ObjectPropertyDescriptors](https://github.com/typedly/descriptor/blob/main/src/lib/type/object-property-descriptors.type.ts)
-- [StrictPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/type/strict-property-descriptors.type.ts)
+- [StrictPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/type/strict-property-descriptor.type.ts)
 - [ThisAccessorPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-property-descriptor.type.ts)
 
 ## Contributing
