@@ -9,5 +9,6 @@ export type {
   // Type.
   AnyPropertyDescriptor,
   ObjectPropertyDescriptors,
+  StrictPropertyDescriptor,
   ThisAccessorPropertyDescriptor
 } from './lib';
