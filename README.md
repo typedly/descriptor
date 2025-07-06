@@ -14,7 +14,6 @@
 [![GitHub issues][typedly-badge-issues]][typedly-issues]
 [![GitHub license][typedly-badge-license]][typedly-license]
 
-**Version:** v4.0.0
 
 A TypeScript type definitions package for **property descriptor**.
 
@@ -28,7 +27,7 @@ A TypeScript type definitions package for **property descriptor**.
     - `DataPropertyDescriptor`
   - [Types](#types)
     - `AnyPropertyDescriptor`
-    - `ObjectPropertyDescriptor`
+    - `ObjectPropertyDescriptors`
     - `StrictPropertyDescriptor`
     - `ThisAccessorPropertyDescriptor`
 - [Contributing](#contributing)

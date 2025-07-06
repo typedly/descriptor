@@ -7,10 +7,16 @@ import { ThisAccessorPropertyDescriptor } from './this-accessor-property-descrip
  * from `ThisAccessorDescriptor` and the `value` and `writable` attributes from `DataDescriptor`. 
  * This allows for properties that have both accessor behavior (via `get` and `set`) and data storage behavior (via `value` and `writable`).
  * @export
- * @template V 
- * @template O
+ * @template V The type of the value accessed by the property.
+ * @template O The type of the object that `this` refers to in the `get()` and `set()` methods.
+ * @template {boolean} [C=boolean] The type of the configurable.
+ * @template {boolean} [E=boolean] The type of the enumerable.
+ * @template {boolean} [W=boolean] The type of the writable.
  */
 export type AnyPropertyDescriptor<
   V,
-  O
-> = ThisAccessorPropertyDescriptor<V, O> & DataPropertyDescriptor<V>;
+  O,
+  C extends boolean = boolean,
+  E extends boolean = boolean,
+  W extends boolean = boolean
+> = ThisAccessorPropertyDescriptor<V, O, C, E> & DataPropertyDescriptor<V, C, E, W>;
