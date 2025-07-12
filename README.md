@@ -130,15 +130,28 @@ const descriptor: WrappedPropertyDescriptor<User, 'name'> = {
   privateKey: Symbol('name'),
   enabled: true,
   active: { onGet: true, onSet: true },
-  onGet(key, value, prevValue, target) {
+  onGet(key, value, previousValue, target) {
     console.log(`Getting ${String(key)}: ${value}`);
     return value;
   },
-  onSet(key, value, prevValue, target) {
+  onSet(value, previousValue, key, instance) {
     console.log(`Setting ${String(key)}: ${value}`);
     return value;
   }
 };
+```
+
+with `set`
+
+```typescript
+set(value: any) {
+  if (!this.enabled) return; // Property is disabled; do nothing
+  if (this.active && this.onSet) {
+    this.onSet(value, ...);
+  } else {
+    this[privateKey] = value; // Normal assignment if active is false
+  }
+}
 ```
 
 **Explanation:**
