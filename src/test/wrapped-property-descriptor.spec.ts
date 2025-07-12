@@ -10,11 +10,11 @@ const descriptor: WrappedPropertyDescriptor<User, 'name'> = {
   privateKey: Symbol('name'),
   enabled: true,
   active: { onGet: true, onSet: true },
-  onGet(key, value, prevValue, target) {
+  onGet(key, value, previousValue, target) {
     console.log(`Getting ${String(key)}: ${value}`);
     return value;
   },
-  onSet(key, value, prevValue, target) {
+  onSet(value, previousValue, key, instance) {
     console.log(`Setting ${String(key)}: ${value}`);
     return value;
   }
