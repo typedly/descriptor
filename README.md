@@ -14,7 +14,6 @@
 [![GitHub issues][typedly-badge-issues]][typedly-issues]
 [![GitHub license][typedly-badge-license]][typedly-license]
 
-
 A TypeScript type definitions package for **property descriptor**.
 
 ## Table of contents
@@ -25,6 +24,8 @@ A TypeScript type definitions package for **property descriptor**.
     - `AccessorPropertyDescriptor`
     - `CommonPropertyDescriptor`
     - `DataPropertyDescriptor`
+    - `PropertyDescriptorChainShape`
+    - `WrappedPropertyDescriptor`
   - [Types](#types)
     - `AnyPropertyDescriptor`
     - `ObjectPropertyDescriptors`
@@ -52,6 +53,8 @@ import {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
+  PropertyDescriptorChainShape,
+  WrappedPropertyDescriptor,
   // Type.
   AnyPropertyDescriptor,
   ObjectPropertyDescriptors,
@@ -65,6 +68,8 @@ import {
 - [AccessorPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-property-descriptor.interface.ts),
 - [CommonPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-property-descriptor.interface.ts)
 - [DataPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
+- [PropertyDescriptorChainShape](https://github.com/typedly/descriptor/blob/main/src/lib/interface/property-descriptor-chain-shape.interface.ts)
+- [WrappedPropertyDescriptor](https://github.com/typedly/descriptor/blob/main/src/lib/interface/wrapped-property-descriptor.interface.ts)
 
 ### Types
 
