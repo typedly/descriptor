@@ -73,33 +73,35 @@ import {
 
 ### Interfaces
 
+#### `AccessorPropertyDescriptor`
+
 Represents an accessor property descriptor with its unique optional `get()` and `set()` functions, used to define or modify properties with getter and setter functions of the `V` type.
 
-- [`AccessorPropertyDescriptor`](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-property-descriptor.interface.ts),
+- [`Source`](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-property-descriptor.interface.ts)
 
 #### `CommonPropertyDescriptor`
 
 Common keys `configurable` of generic type variable `C` and `enumerable` of generic type variable `E` for accessor and data descriptor, picked from the default `PropertyDescriptor`.
 
-- [`CommonPropertyDescriptor`](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-property-descriptor.interface.ts)
+- [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-property-descriptor.interface.ts)
 
 #### `DataPropertyDescriptor`
 
 Represents a data property descriptor, which describes the attributes of a property that holds a specific `value`.
 
-- [`DataPropertyDescriptor`](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
+- [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
 
 #### `PropertyDescriptorChainShape`
 
 The shape of the property descriptor chain to store related descriptors.
 
-- [`PropertyDescriptorChainShape`](https://github.com/typedly/descriptor/blob/main/src/lib/interface/property-descriptor-chain-shape.interface.ts)
+- [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/property-descriptor-chain-shape.interface.ts)
 
 #### `WrappedPropertyDescriptor`
 
 The interface for wrapped property descriptor.
 
-- [`WrappedPropertyDescriptor`](https://github.com/typedly/descriptor/blob/main/src/lib/interface/wrapped-property-descriptor.interface.ts)
+- [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/wrapped-property-descriptor.interface.ts)
 
 ### Types
 
@@ -107,25 +109,25 @@ The interface for wrapped property descriptor.
 
 Represents an intersection of an accessor descriptor and a data descriptor.
 
-- [`AnyPropertyDescriptor`](https://github.com/typedly/descriptor/blob/main/src/lib/type/any-property-descriptor.type.ts)
+- [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/any-property-descriptor.type.ts)
 
 #### `ObjectPropertyDescriptors`
 
 Represents a mapping of an object's properties to their respective property descriptors.
 
-- [`ObjectPropertyDescriptors`](https://github.com/typedly/descriptor/blob/main/src/lib/type/object-property-descriptors.type.ts)
+- [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/object-property-descriptors.type.ts)
 
 #### `StrictPropertyDescriptor`
 
 Represents a union of an accessor descriptor and a data descriptor.
 
-- [`StrictPropertyDescriptor`](https://github.com/typedly/descriptor/blob/main/src/lib/type/strict-property-descriptor.type.ts)
+- [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/strict-property-descriptor.type.ts)
 
 #### `ThisAccessorPropertyDescriptor`
 
 Represents the `AccessorPropertyDescriptor` interface as a type cause of ease of use `this` of an `O` type in the `get()` and `set()` methods.
 
-- [`ThisAccessorPropertyDescriptor`](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-property-descriptor.type.ts)
+- [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-property-descriptor.type.ts)
 
 ## Contributing
 
