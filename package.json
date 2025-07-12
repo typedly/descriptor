@@ -8,7 +8,9 @@
     "access": "public",
     "registry": "https://registry.npmjs.org"
   },
-  "devDependencies": {},
+  "peerDependencies": {
+    "@typedly/callback": "^1.0.0-beta.4"
+  },
   "scripts": {
     "prepublishOnly": "npm install rimraf && npm run pkg && npm run clean",
     "pkg": "npm pkg delete module fesm2022 dependencies",
@@ -30,7 +32,8 @@
     "accessor descriptor",
     "any descriptor",
     "common descriptor",
-    "data descriptor"
+    "data descriptor",
+    "property descriptor chain"
   ],
   "funding": [
     {
