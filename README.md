@@ -81,7 +81,7 @@ Represents an accessor property descriptor with its unique optional `get()` and 
 import { AccessorPropertyDescriptor } from '@typedly/descriptor';
 ```
 
-[`Source`](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-property-descriptor.interface.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-property-descriptor.interface.ts)
 
 #### `CommonPropertyDescriptor`
 
@@ -119,7 +119,36 @@ The interface for wrapped property descriptor.
 
 ```typescript
 import { WrappedPropertyDescriptor } from '@typedly/descriptor';
+
+interface User {
+  name: string;
+}
+
+const descriptor: WrappedPropertyDescriptor<User, 'name'> = {
+  configurable: true,
+  enumerable: true,
+  privateKey: Symbol('name'),
+  enabled: true,
+  active: { onGet: true, onSet: true },
+  onGet(key, value, prevValue, target) {
+    console.log(`Getting ${String(key)}: ${value}`);
+    return value;
+  },
+  onSet(key, value, prevValue, target) {
+    console.log(`Setting ${String(key)}: ${value}`);
+    return value;
+  }
+};
 ```
+
+**Explanation:**
+
+- `privateKey`: Uses a symbol to store the property value privately.
+- `enabled: true`: The property stores the value as normal.
+- `active`: Controls whether the `onGet` and `onSet` callbacks are active.
+- `onGet`/`onSet`: Log property access and assignment.
+
+You can use this descriptor with a property wrapper system to intercept and customize property behavior on your objects. The simple wrap property class is available in the package [`@typescript-package/wrap-property`](https://github.com/typescript-package/wrap-property)
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/wrapped-property-descriptor.interface.ts)
 
