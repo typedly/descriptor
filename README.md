@@ -41,6 +41,14 @@ A TypeScript type definitions package for **property descriptor**.
 
 ## Installation
 
+### 1. Install peer dependencies
+
+```bash
+npm install @typedly/callback --save-peer
+```
+
+### 2. Install the package
+
 ```bash
 npm install @typedly/descriptor --save-peer
 ```
