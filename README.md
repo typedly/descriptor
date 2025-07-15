@@ -14,7 +14,7 @@
 [![GitHub issues][typedly-badge-issues]][typedly-issues]
 [![GitHub license][typedly-badge-license]][typedly-license]
 
-A TypeScript type definitions package for **property descriptor**.
+A **TypeScript** type definitions package for **property descriptor**.
 
 ## Table of contents
 
@@ -38,6 +38,7 @@ A TypeScript type definitions package for **property descriptor**.
   - [Commit](#commit)
   - [Versioning](#versioning)
 - [License](#license)
+- [Related packages](#related-packages)
 
 ## Installation
 
@@ -269,6 +270,12 @@ How do I know when to release 1.0.0?
 ## License
 
 MIT © typedly ([license][typedly-license])
+
+## Related packages
+
+- **[@typescript-package/controller](https://github.com/typescript-package/controller)**: A **TypeScript** package with for various kind of controllers.
+- **[@typescript-package/property](https://github.com/typescript-package/property)**: A **TypeScript** package with features to handle object properties.
+- **[@typescript-package/wrap-property](https://github.com/typescript-package/wrap-property)**: A **TypeScript** package for wrapping object properties.
 
 <!-- This package: typedly  -->
   <!-- GitHub: badges -->
