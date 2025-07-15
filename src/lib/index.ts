@@ -1,11 +1,16 @@
 // Interface.
-export type { AccessorPropertyDescriptor } from './interface/accessor-property-descriptor.interface';
-export type { CommonPropertyDescriptor } from './interface/common-property-descriptor.interface';
-export type { DataPropertyDescriptor } from './interface/data-property-descriptor.interface';
-export type { ObjectPropertyDescriptors } from './type/object-property-descriptors.type';
-export type { PropertyDescriptorChainShape } from './interface/property-descriptor-chain-shape.interface';
-export type { StrictPropertyDescriptor } from './type/strict-property-descriptor.type';
-export type { WrappedPropertyDescriptor } from './interface/wrapped-property-descriptor.interface';
+export type {
+  AccessorPropertyDescriptor,
+  CommonPropertyDescriptor,
+  DataPropertyDescriptor,
+  DescriptorsShape,
+  PropertyDescriptorChainShape,
+  WrappedPropertyDescriptor
+} from './interface';
 // Type.
-export type { AnyPropertyDescriptor } from './type/any-property-descriptor.type';
-export type { ThisAccessorPropertyDescriptor } from './type/this-accessor-property-descriptor.type';
+export type { 
+  AnyPropertyDescriptor,
+  ObjectPropertyDescriptors,
+  StrictPropertyDescriptor,
+  ThisAccessorPropertyDescriptor
+} from './type';
