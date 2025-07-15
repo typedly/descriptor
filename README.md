@@ -114,7 +114,7 @@ The shape of a property descriptors chain in the object.
 import { DescriptorsShape } from '@typedly/descriptor';
 ```
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/descriptor-shape.interface.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/descriptors-shape.interface.ts)
 
 #### `PropertyDescriptorChainShape`
 
