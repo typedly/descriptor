@@ -3,13 +3,13 @@ export type {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
+  DescriptorsShape,
   PropertyDescriptorChainShape,
   WrappedPropertyDescriptor
 } from './interface';
 // Type.
 export type { 
   AnyPropertyDescriptor,
-  DescriptorsShape,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
   ThisAccessorPropertyDescriptor

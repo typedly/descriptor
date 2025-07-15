@@ -6,12 +6,12 @@ export type {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
+  DescriptorsShape,
   PropertyDescriptorChainShape,
   WrappedPropertyDescriptor,
 
   // Type.
   AnyPropertyDescriptor,
-  DescriptorsShape,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
   ThisAccessorPropertyDescriptor
