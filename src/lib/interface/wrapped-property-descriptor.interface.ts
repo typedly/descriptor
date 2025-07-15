@@ -12,7 +12,7 @@ import { GetterCallback, SetterCallback } from '@typedly/callback';
  * @template {boolean} [F=boolean] The type of enabled property.
  * @template {boolean} [C=boolean] The type of configurable property.
  * @template {boolean} [E=boolean] The type of enumerable property.
- * @extends {ThisAccessorPropertyDescriptor<O[K], C, E>}
+ * @extends {ThisAccessorPropertyDescriptor<O[K], O, C, E>}
  */
 export interface WrappedPropertyDescriptor<
   O,
@@ -21,7 +21,7 @@ export interface WrappedPropertyDescriptor<
   F extends boolean = boolean,
   C extends boolean = boolean,
   E extends boolean = boolean,
-> extends ThisAccessorPropertyDescriptor<O[K], C, E> {
+> extends ThisAccessorPropertyDescriptor<O[K], O, C, E> {
   /**
    * @description Whether the property descriptor `onGet` and `onSet` callbacks are active.
     * @type {?(A | {onGet?: boolean; onSet?: boolean})}

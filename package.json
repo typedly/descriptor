@@ -1,6 +1,6 @@
 {
   "name": "@typedly/descriptor",
-  "version": "5.1.0-beta",
+  "version": "5.1.0",
   "author": "wwwdev.io <dev@wwwdev.io>",
   "description": "A TypeScript type definitions package for property descriptor.",
   "license": "MIT",
@@ -9,7 +9,7 @@
     "registry": "https://registry.npmjs.org"
   },
   "peerDependencies": {
-    "@typedly/callback": "^1.0.0-beta.4"
+    "@typedly/callback": "^1.0.0"
   },
   "scripts": {
     "prepublishOnly": "npm install rimraf && npm run pkg && npm run clean",
