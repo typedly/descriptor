@@ -24,6 +24,7 @@ A **TypeScript** type definitions package for **property descriptor**.
     - `AccessorPropertyDescriptor`
     - `CommonPropertyDescriptor`
     - `DataPropertyDescriptor`
+    - `DescriptorsShape`
     - `PropertyDescriptorChainShape`
     - `WrappedPropertyDescriptor`
   - [Types](#types)
@@ -62,6 +63,7 @@ import {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
+  DescriptorsShape, // v5.2.0
   PropertyDescriptorChainShape,
   WrappedPropertyDescriptor,
   // Type.
@@ -103,6 +105,16 @@ import { DataPropertyDescriptor } from '@typedly/descriptor';
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
+
+#### `DescriptorsShape`
+
+The shape of a property descriptors chain in the object.
+
+```typescript
+import { DescriptorsShape } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/descriptor-shape.interface.ts)
 
 #### `PropertyDescriptorChainShape`
 
