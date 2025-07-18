@@ -8,7 +8,9 @@
  * @extends {Pick<PropertyDescriptor, 'configurable' | 'enumerable'>}
  */
 export interface CommonPropertyDescriptor<
+  // Configurable.
   C extends boolean = boolean,
+  // Enumerable.
   E extends boolean = boolean
 > extends Pick<PropertyDescriptor, 'configurable' | 'enumerable'> {
   configurable?: C;

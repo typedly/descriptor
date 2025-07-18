@@ -24,8 +24,8 @@ A **TypeScript** type definitions package for **property descriptor**.
     - `AccessorPropertyDescriptor`
     - `CommonPropertyDescriptor`
     - `DataPropertyDescriptor`
-    - `DescriptorsShape`
-    - `PropertyDescriptorChainShape`
+    - `PropertyDescriptorChain`
+    - `PropertyDescriptors`
     - `WrappedPropertyDescriptor`
   - [Types](#types)
     - `AnyPropertyDescriptor`
@@ -63,8 +63,8 @@ import {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
-  DescriptorsShape, // v5.2.0
-  PropertyDescriptorChainShape,
+  PropertyDescriptorChain,
+  PropertyDescriptors, // v5.2.0
   WrappedPropertyDescriptor,
   // Type.
   AnyPropertyDescriptor,
@@ -106,25 +106,25 @@ import { DataPropertyDescriptor } from '@typedly/descriptor';
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
 
-#### `DescriptorsShape`
-
-The shape of a property descriptors chain in the object.
-
-```typescript
-import { DescriptorsShape } from '@typedly/descriptor';
-```
-
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/descriptors-shape.interface.ts)
-
-#### `PropertyDescriptorChainShape`
+#### `PropertyDescriptorChain`
 
 The shape of the property descriptor chain to store related descriptors.
 
 ```typescript
-import { PropertyDescriptorChainShape } from '@typedly/descriptor';
+import { PropertyDescriptorChain } from '@typedly/descriptor';
 ```
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/property-descriptor-chain-shape.interface.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/property-descriptor-chain.interface.ts)
+
+#### `PropertyDescriptors`
+
+The shape of a property descriptors chain in the object.
+
+```typescript
+import { PropertyDescriptors } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/property-descriptors.interface.ts)
 
 #### `WrappedPropertyDescriptor`
 
@@ -285,6 +285,7 @@ MIT © typedly ([license][typedly-license])
 
 ## Related packages
 
+- **[@typescript-package/descriptor](https://github.com/typescript-package/descriptor)**: A **TypeScript** library for property descriptor.
 - **[@typescript-package/controller](https://github.com/typescript-package/controller)**: A **TypeScript** package with for various kind of controllers.
 - **[@typescript-package/property](https://github.com/typescript-package/property)**: A **TypeScript** package with features to handle object properties.
 - **[@typescript-package/wrap-property](https://github.com/typescript-package/wrap-property)**: A **TypeScript** package for wrapping object properties.

@@ -9,8 +9,12 @@ import { AccessorPropertyDescriptor } from '../interface/accessor-property-descr
  * @template {boolean} [E=boolean] The type of enumerable.
  */
 export type ThisAccessorPropertyDescriptor<
+  // Value.
   V,
+  // Object.
   O,
+  // Configurable.
   C extends boolean = boolean,
+  // Enumerable.
   E extends boolean = boolean
 > = AccessorPropertyDescriptor<V, C, E> & ThisType<O>;
