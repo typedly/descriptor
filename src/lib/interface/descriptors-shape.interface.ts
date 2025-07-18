@@ -1,5 +1,5 @@
 // Interface.
-import { PropertyDescriptorChain } from './property-descriptor-chain-shape.interface';
+import { PropertyDescriptorChain } from './property-descriptor-chain.interface';
 // Type.
 import { ThisAccessorPropertyDescriptor } from '../type/this-accessor-property-descriptor.type';
 /**
