@@ -29,7 +29,7 @@ export interface PropertyDescriptorChain<
   // Enumerable.
   E extends boolean = boolean,
   // Accessor descriptor.
-  D extends ThisAccessorPropertyDescriptor<V, O, C, E> | undefined = ThisAccessorPropertyDescriptor<V, O, C, E> | undefined
+  D extends ThisAccessorPropertyDescriptor<V, O, C, E> = ThisAccessorPropertyDescriptor<V, O, C, E>
 > {
   /**
    * @description Whether the chain is active.
