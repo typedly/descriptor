@@ -6,20 +6,26 @@ import { GetterCallback, SetterCallback } from '@typedly/callback';
  * @description The interface for wrapped property descriptor.
  * @export
  * @interface WrappedPropertyDescriptor
- * @template O 
- * @template {keyof O} K The key type constrained by the object `O`.
+ * @template [O=any] The type of the object that `this` refers to in the `get()` and `set()` methods.
+ * @template {keyof O} [K=keyof O] The key type constrained by the object `O`.
  * @template {boolean} [A=boolean] The type of active property, which can be a boolean or an object with `onGet` and `onSet` properties.
- * @template {boolean} [F=boolean] The type of enabled property.
+ * @template {boolean} [ED=boolean] The type of enabled property.
  * @template {boolean} [C=boolean] The type of configurable property.
  * @template {boolean} [E=boolean] The type of enumerable property.
  * @extends {ThisAccessorPropertyDescriptor<O[K], O, C, E>}
  */
 export interface WrappedPropertyDescriptor<
-  O,
-  K extends keyof O,
+  // Object.
+  O = any,
+  // Key.
+  K extends keyof O = keyof O,
+  // Active.
   A extends boolean = boolean,
-  F extends boolean = boolean,
+  // Enabled.
+  ED extends boolean = boolean,
+  // Configurable.
   C extends boolean = boolean,
+  // Enumerable.
   E extends boolean = boolean,
 > extends ThisAccessorPropertyDescriptor<O[K], O, C, E> {
   /**
@@ -32,9 +38,9 @@ export interface WrappedPropertyDescriptor<
    * @description Whether the property is enabled.
    * If `true`, the property stores the value in the private key.
    * If `false`, the property does not store the value in the private key.
-   * @type {?F}
+   * @type {?ED}
    */
-  enabled?: F;
+  enabled?: ED;
 
   /**
    * @description The previous descriptor of the property for unwrapping.
