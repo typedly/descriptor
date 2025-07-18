@@ -5,7 +5,7 @@ import { ThisAccessorPropertyDescriptor } from '../type/this-accessor-property-d
 /**
  * @description The shape of a property descriptors chain in the object.
  * @export
- * @interface DescriptorsShape
+ * @interface PropertyDescriptors
  * @template {object} [O=object] The object type that the descriptors are associated with.
  * @template {keyof O} [K=keyof O] The type of the property key.
  * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] The type of the property value.
@@ -16,7 +16,7 @@ import { ThisAccessorPropertyDescriptor } from '../type/this-accessor-property-d
  * @template {ThisAccessorPropertyDescriptor<V, O, C, E>} [D=ThisAccessorPropertyDescriptor<V, O, C, E>] 
  * @template {PropertyDescriptorChain<O, K, V, A, ED, C, E, D>} [DC=PropertyDescriptorChain<O, K, V, A, ED, C, E, D>] 
  */
-export interface DescriptorsShape<
+export interface PropertyDescriptors<
   // Object.
   O,
   // Key.
