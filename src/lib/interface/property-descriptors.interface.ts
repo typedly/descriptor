@@ -18,7 +18,7 @@ import { ThisAccessorPropertyDescriptor } from '../type/this-accessor-property-d
  */
 export interface PropertyDescriptors<
   // Object.
-  O,
+  O = any,
   // Key.
   K extends keyof O = keyof O,
   // Value.
