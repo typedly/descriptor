@@ -7,7 +7,7 @@ export type {
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
   DescriptorsShape,
-  PropertyDescriptorChainShape,
+  PropertyDescriptorChain,
   WrappedPropertyDescriptor,
 
   // Type.

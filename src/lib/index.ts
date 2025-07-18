@@ -4,7 +4,7 @@ export type {
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
   DescriptorsShape,
-  PropertyDescriptorChainShape,
+  PropertyDescriptorChain,
   WrappedPropertyDescriptor
 } from './interface';
 // Type.
