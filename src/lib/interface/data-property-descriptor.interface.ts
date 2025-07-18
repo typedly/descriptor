@@ -11,9 +11,13 @@ import { CommonPropertyDescriptor } from "./common-property-descriptor.interface
  * @extends {CommonPropertyDescriptor<C, E>}
  */
 export interface DataPropertyDescriptor<
+  // Value.
   V,
+  // Configurable.
   C extends boolean = boolean,
+  // Enumerable.
   E extends boolean = boolean,
+  // Writable.
   W extends boolean = boolean
 > extends CommonPropertyDescriptor<C, E> {
   /**
