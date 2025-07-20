@@ -137,34 +137,29 @@ interface User {
   name: string;
 }
 
-const descriptor: WrappedPropertyDescriptor<User, 'name'> = {
+const example: WrappedPropertyDescriptor<User, 'name'> = {
   configurable: true,
   enumerable: true,
   privateKey: Symbol('name'),
   enabled: true,
   active: { onGet: true, onSet: true },
-  onGet(key, value, previousValue, target) {
+  onGet(this: User, key, value, previousValue, target) {
     console.log(`Getting ${String(key)}: ${value}`);
     return value;
   },
-  onSet(value, previousValue, key, instance) {
+  onSet(this: User, value, previousValue, key, instance) {
     console.log(`Setting ${String(key)}: ${value}`);
     return value;
+  },
+  set(this: User, value, descriptor) {
+    if (!descriptor?.enabled) return; // Property is disabled; do nothing
+    if (descriptor?.active && descriptor?.onSet) {
+      descriptor.onSet.call(this, value, '', 'name', this);
+    } else {
+      descriptor.privateKey && (this[descriptor.privateKey as keyof User] = value);
+    }
   }
 };
-```
-
-with `set`
-
-```typescript
-set(value: any) {
-  if (!this.enabled) return; // Property is disabled; do nothing
-  if (this.active && this.onSet) {
-    this.onSet(value, ...);
-  } else {
-    this[privateKey] = value; // Normal assignment if active is false
-  }
-}
 ```
 
 **Explanation:**
