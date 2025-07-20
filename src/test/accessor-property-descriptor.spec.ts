@@ -1,4 +1,4 @@
-import { StrictPropertyDescriptor } from "../lib";
+import { AccessorPropertyDescriptor } from "../lib";
 
 interface Person {
   name: string;
@@ -11,7 +11,7 @@ const obj: Person = {
   age: 30,
 };
 
-const example: StrictPropertyDescriptor<string, Person, true, true> = {
+const example: AccessorPropertyDescriptor<string, true, true> = {
   configurable: true,
   enumerable: true,
   get() {
