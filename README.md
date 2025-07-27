@@ -131,9 +131,10 @@ import { PropertyDescriptors } from '@typedly/descriptor';
 The interface for wrapped property descriptor.
 
 > **Note:**  
-> The interface has changed the `D` constrainment to only `WrappedPropertyDescriptor<O, K, V, A, N, C, E, D>` with the default value `WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>`.
-> The `descriptor` in the `set`, `get` ifs always `WrappedPropertyDescriptor`, and `previousDescriptor` is almost always a `WrappedPropertyDescriptor`, instead of first wrap.
-> The `previousDescriptor` has also the `PropertyDescriptor` cause first wrap could be just a data descriptor.
+> **Note:**  
+> The generic parameter `D` is now constrained to only `WrappedPropertyDescriptor<O, K, V, A, N, C, E, D>`, with the default set to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>`.  
+> The `descriptor` parameter in the `set` and `get` methods is always a `WrappedPropertyDescriptor`.  
+> The `previousDescriptor` property is typically a `WrappedPropertyDescriptor`, except for the initial wrap, where it may be a plain `PropertyDescriptor` (to support chaining from a base data descriptor).
 
 ```typescript
 import { WrappedPropertyDescriptor } from '@typedly/descriptor';
