@@ -12,7 +12,7 @@ import { ThisAccessorPropertyDescriptor } from '../type';
  * @template {boolean} [N=boolean] The type of enabled property.
  * @template {boolean} [C=boolean] The type of configurable property.
  * @template {boolean} [E=boolean] The type of enumerable property.
- * @template {WrappedPropertyDescriptor<O, K, V, A, N, C, E, D> | PropertyDescriptor} [D=PropertyDescriptor] 
+ * @template {WrappedPropertyDescriptor<O, K, V, A, N, C, E, D>} [D=WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>]
  * @extends {Omit<ThisAccessorPropertyDescriptor<V, O, C, E>, 'set' | 'get'>}
  */
 export interface WrappedPropertyDescriptor<
@@ -31,7 +31,7 @@ export interface WrappedPropertyDescriptor<
   // Enumerable.
   E extends boolean = boolean,
   // Descriptor as previous or current in the `set` and `get`.
-  D extends WrappedPropertyDescriptor<O, K, V, A, N, C, E, D> | PropertyDescriptor = PropertyDescriptor
+  D extends WrappedPropertyDescriptor<O, K, V, A, N, C, E, D> = WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>
 > extends Omit<ThisAccessorPropertyDescriptor<V, O, C, E>, 'set' | 'get'> {
   /**
    * @description The `set` to wrap the original `set()` method for accessing the `descriptor`.
@@ -67,9 +67,9 @@ export interface WrappedPropertyDescriptor<
 
   /**
    * @description The previous descriptor of the property for unwrapping.
-   * @type {?D}
+   * @type {?(D | PropertyDescriptor)}
    */
-  previousDescriptor?: D;
+  previousDescriptor?: D | PropertyDescriptor;
 
   /**
    * @description The key used to access the property in the object.
