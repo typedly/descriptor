@@ -8,7 +8,7 @@ import { ThisAccessorPropertyDescriptor } from '../type';
  * @template {keyof O} [K=keyof O] The type of the property name in the object.
  * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] The type of the value accessed by the property.
  * @template {boolean} [A=boolean] The type of active property.
- * @template {boolean} [ED=boolean] The type of enabled property.
+ * @template {boolean} [N=boolean] The type of enabled property.
  * @template {boolean} [C=boolean] The type of configurable property.
  * @template {boolean} [E=boolean] The type of enumerable property.
  * @template {ThisAccessorPropertyDescriptor<V, O, C, E>} [D=ThisAccessorPropertyDescriptor<V, O, C, E>] 
@@ -23,7 +23,7 @@ export interface PropertyDescriptorChain<
   // Active.
   A extends boolean = boolean,
   // Enabled.
-  ED extends boolean = boolean,
+  N extends boolean = boolean,
   // Configurable.
   C extends boolean = boolean,
   // Enumerable.
@@ -48,9 +48,9 @@ export interface PropertyDescriptorChain<
   /**
    * @description Whether the chain is enabled.
    * @readonly
-   * @type {ED}
+   * @type {N}
    */
-  get enabled(): ED;
+  get enabled(): N;
 
   /**
    * @description The last index of descriptors in the chain.
