@@ -67,7 +67,7 @@ export interface WrappedPropertyDescriptor<
 
   /**
    * @description The previous descriptor of the property for unwrapping.
-   * @type {?|D}
+   * @type {?D}
    */
   previousDescriptor?: D;
 
