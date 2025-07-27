@@ -10,11 +10,11 @@ import { ThisAccessorPropertyDescriptor } from '../type';
  * @template {keyof O} [K=keyof O] The type of the property key.
  * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] The type of the property value.
  * @template {boolean} [A=boolean] The type of active property.
- * @template {boolean} [ED=boolean] The type of enabled property.
+ * @template {boolean} [N=boolean] The type of enabled property.
  * @template {boolean} [C=boolean] The type of configurable property.
  * @template {boolean} [E=boolean] The type of enumerable property.
  * @template {ThisAccessorPropertyDescriptor<V, O, C, E>} [D=ThisAccessorPropertyDescriptor<V, O, C, E>] 
- * @template {PropertyDescriptorChain<O, K, V, A, ED, C, E, D>} [DC=PropertyDescriptorChain<O, K, V, A, ED, C, E, D>] 
+ * @template {PropertyDescriptorChain<O, K, V, A, N, C, E, D>} [DC=PropertyDescriptorChain<O, K, V, A, N, C, E, D>] 
  */
 export interface PropertyDescriptors<
   // Object.
@@ -26,7 +26,7 @@ export interface PropertyDescriptors<
   // Active.
   A extends boolean = boolean,
   // Enabled.
-  ED extends boolean = boolean,
+  N extends boolean = boolean,
   // Configurable.
   C extends boolean = boolean,
   // Enumerable.
@@ -34,7 +34,7 @@ export interface PropertyDescriptors<
   // Descriptor.
   D extends ThisAccessorPropertyDescriptor<V, O, C, E> = ThisAccessorPropertyDescriptor<V, O, C, E>,
   // Descriptor Chain.
-  DC extends PropertyDescriptorChain<O, K, V, A, ED, C, E, D> = PropertyDescriptorChain<O, K, V, A, ED, C, E, D>,
+  DC extends PropertyDescriptorChain<O, K, V, A, N, C, E, D> = PropertyDescriptorChain<O, K, V, A, N, C, E, D>,
 > {
   /**
    * @description Adds a new property descriptor to the chain.
