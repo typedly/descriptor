@@ -31,7 +31,7 @@ export interface WrappedPropertyDescriptor<
   // Enumerable.
   E extends boolean = boolean,
   // Descriptor as previous or current in the `set` and `get`.
-  D extends WrappedPropertyDescriptor<O, K, V, A, N, C, E, D> = WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>
+  D extends WrappedPropertyDescriptor<O, K, V, A, N, C, E, D> | PropertyDescriptor = WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>
 > extends Omit<ThisAccessorPropertyDescriptor<V, O, C, E>, 'set' | 'get'> {
   /**
    * @description The `set` to wrap the original `set()` method for accessing the `descriptor`.
@@ -67,9 +67,10 @@ export interface WrappedPropertyDescriptor<
 
   /**
    * @description The previous descriptor of the property for unwrapping.
-   * @type {?(D | PropertyDescriptor)}
+   * @type {?D}
    */
-  previousDescriptor?: D | PropertyDescriptor;
+  previous?: D;
+  previousDescriptor?: D;
 
   /**
    * @description The key used to access the property in the object.
