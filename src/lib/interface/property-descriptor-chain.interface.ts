@@ -11,7 +11,7 @@ import { ThisAccessorPropertyDescriptor } from '../type';
  * @template {boolean} [N=boolean] The type of enabled property.
  * @template {boolean} [C=boolean] The type of configurable property.
  * @template {boolean} [E=boolean] The type of enumerable property.
- * @template {ThisAccessorPropertyDescriptor<V, O, C, E>} [D=ThisAccessorPropertyDescriptor<V, O, C, E>] 
+ * @template {ThisAccessorPropertyDescriptor<V, O, C, E> | PropertyDescriptor} [D=ThisAccessorPropertyDescriptor<V, O, C, E>] 
  */
 export interface PropertyDescriptorChain<
   // Object.
@@ -29,7 +29,7 @@ export interface PropertyDescriptorChain<
   // Enumerable.
   E extends boolean = boolean,
   // Accessor descriptor.
-  D extends ThisAccessorPropertyDescriptor<V, O, C, E> = ThisAccessorPropertyDescriptor<V, O, C, E>
+  D extends ThisAccessorPropertyDescriptor<V, O, C, E> | PropertyDescriptor = ThisAccessorPropertyDescriptor<V, O, C, E>
 > {
   /**
    * @description Whether the chain is active.
