@@ -11,6 +11,7 @@ export type {
   PropertyDescriptors,
   // Type.
   AnyPropertyDescriptor,
+  AttributedDescriptor,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
   ThisAccessorPropertyDescriptor,
