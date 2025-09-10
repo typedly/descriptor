@@ -21,17 +21,20 @@ A **TypeScript** type definitions package for **property descriptor**.
 - [Installation](#installation)
 - [Api](#api)
   - [Interfaces](#interfaces)
-    - `AccessorPropertyDescriptor`
-    - `CommonPropertyDescriptor`
-    - `DataPropertyDescriptor`
-    - `PropertyDescriptorChain`
-    - `PropertyDescriptors`
-    - `WrappedPropertyDescriptor`
+    - [`AccessorPropertyDescriptor`](#accessorpropertydescriptor)
+    - [`CommonPropertyDescriptor`](#commonpropertydescriptor)
+    - [`DataPropertyDescriptor`](#datapropertydescriptor)
+    - `DescriptorAttributes`
+    - [`PropertyDescriptorChain`](#propertydescriptorchain)
+    - [`PropertyDescriptors`](#propertydescriptors)
+    - `WrappedDescriptorAttributes`
+    - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
   - [Types](#types)
-    - `AnyPropertyDescriptor`
-    - `ObjectPropertyDescriptors`
-    - `StrictPropertyDescriptor`
-    - `ThisAccessorPropertyDescriptor`
+    - [`AnyPropertyDescriptor`](#anypropertydescriptor)
+    - [`ObjectPropertyDescriptors`](#objectpropertydescriptors)
+    - [`StrictPropertyDescriptor`](#strictpropertydescriptor)
+    - [`ThisAccessorPropertyDescriptor`](#thisaccessorpropertydescriptor)
+    - [`WrappedDescriptor`](#wrappeddescriptor)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -106,6 +109,16 @@ import { DataPropertyDescriptor } from '@typedly/descriptor';
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
 
+#### `DescriptorAttributes`
+
+The attributes for the attributed property descriptor.
+
+```typescript
+import { DescriptorAttributes } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/descriptor-attributes.interface.ts)
+
 #### `PropertyDescriptorChain`
 
 The shape of the property descriptor chain to store related descriptors.
@@ -176,7 +189,7 @@ const example: WrappedPropertyDescriptor<User, 'name'> = {
 
 You can use this descriptor with a property wrapper system to intercept and customize property behavior on your objects. The simple wrap property class is available in the package [`@typescript-package/wrap-property`](https://github.com/typescript-package/wrap-property)
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/wrapped-property-descriptor.interface.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/wrapped/lib/wrapped-property-descriptor.interface.ts)
 
 ### Types
 
@@ -189,6 +202,16 @@ import { AnyPropertyDescriptor } from '@typedly/descriptor';
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/any-property-descriptor.type.ts)
+
+#### `AttributedDescriptor`
+
+The attributed property descriptor for attributes customization.
+
+```typescript
+import { AttributedDescriptor } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/attributed-descriptor.type.ts)
 
 #### `ObjectPropertyDescriptors`
 
@@ -219,6 +242,26 @@ import { ThisAccessorPropertyDescriptor } from '@typedly/descriptor';
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-property-descriptor.type.ts)
+
+#### `WrappedDescriptorAttributes`
+
+The attributes for the `WrappedDescriptor` type.
+
+```typescript
+import { WrappedDescriptorAttributes } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/wrapped/lib/wrapped-descriptor-attributes.type.ts)
+
+#### `WrappedDescriptor`
+
+The customizable property descriptor that wraps another property descriptor.
+
+```typescript
+import { WrappedDescriptor } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/wrapped/lib/wrapped-descriptor.type.ts)
 
 ## Contributing
 
