@@ -1,6 +1,6 @@
 // Type.
 import { GetterCallback, SetterCallback } from '@typedly/callback';
-import { ThisAccessorPropertyDescriptor } from '../type';
+import { ThisAccessorPropertyDescriptor } from '../../lib/type';
 /**
  * @description The interface for wrapped property descriptor.
  * @export
@@ -70,7 +70,6 @@ export interface WrappedPropertyDescriptor<
    * @type {?D}
    */
   previous?: D;
-  previousDescriptor?: D;
 
   /**
    * @description The key used to access the property in the object.
