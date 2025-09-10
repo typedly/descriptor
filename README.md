@@ -66,14 +66,18 @@ import {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
+  DescriptorAttributes,
   PropertyDescriptorChain,
-  PropertyDescriptors, // v5.2.0
+  PropertyDescriptors,
+  WrappedDescriptorAttributes,
   WrappedPropertyDescriptor,
   // Type.
   AnyPropertyDescriptor,
+  AttributedDescriptor,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
-  ThisAccessorPropertyDescriptor
+  ThisAccessorPropertyDescriptor,
+  WrappedDescriptor,
 } from '@typedly/descriptor';
 ```
 
