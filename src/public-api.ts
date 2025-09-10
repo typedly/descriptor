@@ -6,13 +6,21 @@ export type {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
-  PropertyDescriptors,
+  DescriptorAttributes,
   PropertyDescriptorChain,
-  WrappedPropertyDescriptor,
-
+  PropertyDescriptors,
   // Type.
   AnyPropertyDescriptor,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
-  ThisAccessorPropertyDescriptor
+  ThisAccessorPropertyDescriptor,
 } from './lib';
+
+// Wrapped.
+export type {
+  // Interface.
+  WrappedDescriptorAttributes,
+  WrappedPropertyDescriptor,
+  // Type.
+  WrappedDescriptor,
+} from './wrapped';
