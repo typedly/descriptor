@@ -8,20 +8,22 @@ import { GetterCallback, SetterCallback } from "@typedly/callback";
  * @interface WrappedDescriptorAttributes
  * @template O The type of the object that `this` refers to in the `get()` and `set()` methods.
  * @template {keyof O} K The key type constrained by the object `O`.
+ * @template {PropertyKey} P The private property key type, typically a string, number, or symbol.
  * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] The value type of the property.
  * @extends {DescriptorAttributes<O, K, V, boolean, boolean>}
  */
 export interface WrappedDescriptorAttributes<
   O,
   K extends keyof O,
+  P extends PropertyKey,
   V extends K extends keyof O ? O[K] : any = K extends keyof O ? O[K] : any,
 > extends DescriptorAttributes<O, K, V, boolean, boolean> {
   //#region Properties
   /**
    * @description Whether the property descriptor `onGet` and `onSet` callbacks are active.
-    * @type {?(A | {onGet?: boolean; onSet?: boolean})}
+    * @type {?(boolean | {onGet?: boolean; onSet?: boolean})}
    */
-  active?: A | {onGet?: boolean; onSet?: boolean};
+  active?: boolean | {onGet?: boolean; onSet?: boolean};
 
   /**
    * @description Whether the property is enabled.
@@ -45,9 +47,9 @@ export interface WrappedDescriptorAttributes<
 
   /**
    * @description The key used to access the property in the object.
-   * @type {?PropertyKey}
+   * @type {?P}
    */
-  privateKey?: PropertyKey;
+  privateKey?: P;
 
   /**
    * @description Whether the private property can be written.
