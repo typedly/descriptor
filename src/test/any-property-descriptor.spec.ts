@@ -1,9 +1,5 @@
 import { AnyPropertyDescriptor } from "../lib";
-
-interface Person {
-  name: string;
-  age: number;
-}
+import { Person } from "./person.interface";
 
 const descriptor: AnyPropertyDescriptor<string, Person> = {
   // Accessor behavior (getter and setter)

@@ -1,10 +1,5 @@
 import { ObjectPropertyDescriptors } from "../lib";
-
-interface Person {
-  name: string;
-  age: number;
-  greet(): void;
-}
+import { Person } from "./person.interface";
 
 // Example using ObjectPropertyDescriptors
 const descriptors: ObjectPropertyDescriptors<Person> = {
@@ -47,5 +42,5 @@ Object.defineProperties(obj, descriptors);
 
 console.log(obj.name); // "John"
 console.log(obj.age); // 30
-obj.greet(); // "Hello!"
+obj.greet?.(); // "Hello!"
 console.log((obj as any).additionalDynamicKey); // "dynamic value"

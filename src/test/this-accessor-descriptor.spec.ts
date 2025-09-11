@@ -1,9 +1,6 @@
 
 import { ThisAccessorPropertyDescriptor } from '../lib';
-
-interface User {
-  name: string;
-}
+import { User } from './user.test';
 
 const descriptor: ThisAccessorPropertyDescriptor<string, User> = {
   configurable: true,

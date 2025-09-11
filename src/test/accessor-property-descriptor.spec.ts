@@ -1,9 +1,5 @@
 import { AccessorPropertyDescriptor } from "../lib";
-
-interface Person {
-  name: string;
-  age: number;
-}
+import { Person } from "./person.interface";
 
 // Apply the descriptor to an object
 const obj: Person = {
