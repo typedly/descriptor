@@ -3,7 +3,7 @@ import { DescriptorAttributes } from "../../lib/interface/descriptor-attributes.
 // Type.
 import { GetterCallback, SetterCallback } from "@typedly/callback";
 /**
- * @description The attributes for the `WrappedDescriptor` type.
+ * @description The attributes for the `ChainedDescriptor` type.
  * @export
  * @interface ChainedDescriptorAttributes
  * @template O The type of the object that `this` refers to in the `get()` and `set()` methods.
@@ -21,7 +21,7 @@ export interface ChainedDescriptorAttributes<
   //#region Properties
   /**
    * @description Whether the property descriptor `onGet` and `onSet` callbacks are active.
-    * @type {?(boolean | {onGet?: boolean; onSet?: boolean})}
+   * @type {?(boolean | {onGet?: boolean; onSet?: boolean})}
    */
   active?: boolean | {onGet?: boolean; onSet?: boolean};
 
