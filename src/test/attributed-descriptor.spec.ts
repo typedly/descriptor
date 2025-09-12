@@ -1,8 +1,8 @@
-import { AttributedDescriptor } from '../lib';
+import { AttributedPropertyDescriptor } from '../lib';
 import { User, userClass } from './user.test';
 
-// WrappedDescriptor<User, "name", string>
-const example: AttributedDescriptor<typeof userClass, 'name', string> = {
+// AttributedPropertyDescriptor<User, "name", string>
+const attributedDescriptor: AttributedPropertyDescriptor<typeof userClass, 'name', string> = {
   configurable: true,
   enumerable: true,
   get(this: typeof userClass) {
