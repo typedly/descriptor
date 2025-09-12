@@ -1,23 +1,23 @@
 // Interface.
-import { DescriptorAttributes } from "../../lib/interface/descriptor-attributes.interface";
+import { KeyedAccessorPropertyDescriptor } from "../../lib/interface/keyed-accessor-property-descriptor.interface";
 // Type.
 import { GetterCallback, SetterCallback } from "@typedly/callback";
 /**
- * @description The attributes for the `ChainedDescriptor` type.
+ * @description The attributes for the `AugmentedPropertyDescriptor` type.
  * @export
- * @interface ChainedDescriptorAttributes
+ * @interface AugmentedDescriptorAttributes
  * @template O The type of the object that `this` refers to in the `get()` and `set()` methods.
  * @template {keyof O} K The key type constrained by the object `O`.
  * @template {PropertyKey} P The private property key type, typically a string, number, or symbol.
  * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] The value type of the property.
- * @extends {DescriptorAttributes<O, K, V, boolean, boolean>}
+ * @extends {KeyedAccessorPropertyDescriptor<O, K, V, boolean, boolean>}
  */
-export interface ChainedDescriptorAttributes<
+export interface AugmentedDescriptorAttributes<
   O,
   K extends keyof O,
   P extends PropertyKey,
   V extends K extends keyof O ? O[K] : any = K extends keyof O ? O[K] : any,
-> extends DescriptorAttributes<O, K, V, boolean, boolean> {
+> extends KeyedAccessorPropertyDescriptor<O, K, V, boolean, boolean> {
   //#region Properties
   /**
    * @description Whether the property descriptor `onGet` and `onSet` callbacks are active.

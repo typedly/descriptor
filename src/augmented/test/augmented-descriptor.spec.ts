@@ -1,8 +1,8 @@
-import { ChainedPropertyDescriptor } from '../lib';
+import { AugmentedPropertyDescriptor } from '../lib';
 import { User, userClass } from '../../test/user.test';
 
-// ChainedPropertyDescriptor<UserClass, "name", "_name" | "_age">
-const example: ChainedPropertyDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
+// AugmentedPropertyDescriptor<UserClass, "name", "_name" | "_age">
+const example: AugmentedPropertyDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
   configurable: true,
   enumerable: true,
   privateKey: '_name',

@@ -1,7 +1,8 @@
-import { ChainedDescriptorAttributes } from '../lib';
+import { AugmentedDescriptorAttributes } from '../lib';
 import { User } from '../../test/user.test';
 
-const example: ChainedDescriptorAttributes<User, 'name', '_name'> = {
+// AugmentedDescriptorAttributes<User, "name", "_name", string>
+const attributes: AugmentedDescriptorAttributes<User, 'name', '_name'> = {
   configurable: true,
   enumerable: true,
   set(this: User, value: string): void {
