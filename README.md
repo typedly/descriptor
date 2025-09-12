@@ -22,19 +22,19 @@ A **TypeScript** type definitions package for **property descriptor**.
 - [Api](#api)
   - [Interfaces](#interfaces)
     - [`AccessorPropertyDescriptor`](#accessorpropertydescriptor)
+    - [`ChainedDescriptorAttributes`](#chaineddescriptorattributes)
     - [`CommonPropertyDescriptor`](#commonpropertydescriptor)
     - [`DataPropertyDescriptor`](#datapropertydescriptor)
     - `DescriptorAttributes`
     - [`PropertyDescriptorChain`](#propertydescriptorchain)
     - [`PropertyDescriptors`](#propertydescriptors)
-    - `WrappedDescriptorAttributes`
     - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
   - [Types](#types)
     - [`AnyPropertyDescriptor`](#anypropertydescriptor)
+    - [`ChainedPropertyDescriptor`](#chainedpropertydescriptor)
     - [`ObjectPropertyDescriptors`](#objectpropertydescriptors)
     - [`StrictPropertyDescriptor`](#strictpropertydescriptor)
     - [`ThisAccessorPropertyDescriptor`](#thisaccessorpropertydescriptor)
-    - [`WrappedDescriptor`](#wrappeddescriptor)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -64,20 +64,20 @@ npm install @typedly/descriptor --save-peer
 import {
   // Interface.
   AccessorPropertyDescriptor,
+  ChainedDescriptorAttributes,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
   DescriptorAttributes,
   PropertyDescriptorChain,
   PropertyDescriptors,
-  WrappedDescriptorAttributes,
   WrappedPropertyDescriptor,
   // Type.
   AnyPropertyDescriptor,
   AttributedDescriptor,
+  ChainedPropertyDescriptor,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
   ThisAccessorPropertyDescriptor,
-  WrappedDescriptor,
 } from '@typedly/descriptor';
 ```
 
@@ -238,52 +238,12 @@ import { AttributedDescriptor } from '@typedly/descriptor';
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/attributed-descriptor.type.ts)
 
-#### `ObjectPropertyDescriptors`
-
-Represents a mapping of an object's properties to their respective property descriptors.
-
-```typescript
-import { ObjectPropertyDescriptors } from '@typedly/descriptor';
-```
-
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/object-property-descriptors.type.ts)
-
-#### `StrictPropertyDescriptor`
-
-Represents a union of an accessor descriptor and a data descriptor.
-
-```typescript
-import { StrictPropertyDescriptor } from '@typedly/descriptor';
-```
-
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/strict-property-descriptor.type.ts)
-
-#### `ThisAccessorPropertyDescriptor`
-
-Represents the `AccessorPropertyDescriptor` interface as a type cause of ease of use `this` of an `O` type in the `get()` and `set()` methods.
-
-```typescript
-import { ThisAccessorPropertyDescriptor } from '@typedly/descriptor';
-```
-
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-property-descriptor.type.ts)
-
-#### `WrappedDescriptorAttributes`
-
-The attributes for the `WrappedDescriptor` type.
-
-```typescript
-import { WrappedDescriptorAttributes } from '@typedly/descriptor';
-```
-
-[Source](https://github.com/typedly/descriptor/blob/main/src/wrapped/lib/wrapped-descriptor-attributes.type.ts)
-
-#### `WrappedDescriptor`
+#### `ChainedPropertyDescriptor`
 
 The customizable property descriptor that wraps another property descriptor.
 
 ```typescript
-import { WrappedDescriptor } from '@typedly/descriptor';
+import { ChainedPropertyDescriptor } from '@typedly/descriptor';
 
 export interface User {
   name: string;
@@ -317,8 +277,8 @@ export class UserClass implements User {
 
 export const userClass = new UserClass();
 
-// WrappedDescriptor<UserClass, "name", "_name" | "_age">
-const example: WrappedDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
+// ChainedPropertyDescriptor<UserClass, "name", "_name" | "_age">
+const example: ChainedPropertyDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
   configurable: true,
   enumerable: true,
   privateKey: '_name',
@@ -346,7 +306,47 @@ const example: WrappedDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
 };
 ```
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/wrapped/lib/wrapped-descriptor.type.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/chained/lib/chained-property-descriptor.type.ts)
+
+#### `ObjectPropertyDescriptors`
+
+Represents a mapping of an object's properties to their respective property descriptors.
+
+```typescript
+import { ObjectPropertyDescriptors } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/object-property-descriptors.type.ts)
+
+#### `StrictPropertyDescriptor`
+
+Represents a union of an accessor descriptor and a data descriptor.
+
+```typescript
+import { StrictPropertyDescriptor } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/strict-property-descriptor.type.ts)
+
+#### `ThisAccessorPropertyDescriptor`
+
+Represents the `AccessorPropertyDescriptor` interface as a type cause of ease of use `this` of an `O` type in the `get()` and `set()` methods.
+
+```typescript
+import { ThisAccessorPropertyDescriptor } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-property-descriptor.type.ts)
+
+#### `ChainedDescriptorAttributes`
+
+The attributes for the `ChainedPropertyDescriptor` type.
+
+```typescript
+import { ChainedDescriptorAttributes } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/chained/lib/chained-descriptor-attributes.type.ts)
 
 ## Contributing
 
