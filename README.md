@@ -30,8 +30,8 @@ A **TypeScript** type definitions package for **property descriptor**.
       - [`KeyedPropertyDescriptor`](#keyedaccessorpropertydescriptor)
       - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
     - Other
-    - [`PropertyDescriptorChain`](#propertydescriptorchain)
-    - [`PropertyDescriptors`](#propertydescriptors)
+      - [`PropertyDescriptorChain`](#propertydescriptorchain)
+      - [`PropertyDescriptors`](#propertydescriptors)
   - [Types](#types)
     - Descriptor
       - [`AnyPropertyDescriptor`](#anypropertydescriptor)
@@ -39,7 +39,7 @@ A **TypeScript** type definitions package for **property descriptor**.
       - [`AugmentedPropertyDescriptor`](#augmentedpropertydescriptor)
       - [`StrictPropertyDescriptor`](#strictpropertydescriptor)
       - [`ThisAccessorPropertyDescriptor`](#thisaccessorpropertydescriptor)
-    - OTher
+    - Other
       - [`ObjectPropertyDescriptors`](#objectpropertydescriptors)
 - [Contributing](#contributing)
 - [Support](#support)
@@ -70,17 +70,17 @@ npm install @typedly/descriptor --save-peer
 import {
   // Interface.
   AccessorPropertyDescriptor,
-  ChainedDescriptorAttributes,
+  AugmentedDescriptorAttributes,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
-  DescriptorAttributes,
+  KeyedAccessorPropertyDescriptor,
   PropertyDescriptorChain,
   PropertyDescriptors,
   WrappedPropertyDescriptor,
   // Type.
   AnyPropertyDescriptor,
-  AttributedDescriptor,
-  ChainedPropertyDescriptor,
+  AttributedPropertyDescriptor,
+  AugmentedPropertyDescriptor,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
   ThisAccessorPropertyDescriptor,
