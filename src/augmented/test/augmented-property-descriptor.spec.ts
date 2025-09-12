@@ -1,8 +1,23 @@
-import { AugmentedPropertyDescriptor } from '../lib';
+import { AugmentedDescriptorAttributes, AugmentedPropertyDescriptor } from '../lib';
 import { User, userClass } from '../../test/user.test';
 
+interface CustomAttributes<
+  O,
+  K extends keyof O,
+  P extends PropertyKey,
+  V extends K extends keyof O ? O[K] : any = K extends keyof O ? O[K] : any,
+> extends AugmentedDescriptorAttributes<O, K, P, V> {
+  'customAttribute'?: string;
+}
+
 // AugmentedPropertyDescriptor<UserClass, "name", "_name" | "_age">
-const example: AugmentedPropertyDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
+const example: AugmentedPropertyDescriptor<
+  typeof userClass, // object
+  'name', // key
+  '_name' | '_age', // private key
+  string, // value
+  CustomAttributes<typeof userClass, 'name', '_name' | '_age', string> // attributes
+> = {
   configurable: true,
   enumerable: true,
   privateKey: '_name',
@@ -26,5 +41,6 @@ const example: AugmentedPropertyDescriptor<typeof userClass, 'name', '_name' | '
         descriptor.privateKey === '_name' && (this[descriptor.privateKey] = value);
       }
     }
-  }
+  },
+  'customAttribute': 'This is a custom attribute',
 };
