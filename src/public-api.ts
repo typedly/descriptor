@@ -17,11 +17,10 @@ export type {
   ThisAccessorPropertyDescriptor,
 } from './lib';
 
-// Wrapped.
+// Chained.
 export type {
   // Interface.
-  WrappedDescriptorAttributes,
-  WrappedPropertyDescriptor,
+  ChainedDescriptorAttributes,
   // Type.
-  WrappedDescriptor,
-} from './wrapped';
+  ChainedPropertyDescriptor
+} from './chained';

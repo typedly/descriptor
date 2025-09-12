@@ -6,6 +6,7 @@ export type {
   DescriptorAttributes,
   PropertyDescriptorChain,
   PropertyDescriptors,
+  WrappedPropertyDescriptor
 } from './interface';
 // Type.
 export type { 
