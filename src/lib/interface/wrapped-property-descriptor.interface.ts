@@ -2,7 +2,6 @@
 import { GetterCallback, SetterCallback } from '@typedly/callback';
 import { ThisAccessorPropertyDescriptor } from '../type';
 /**
- * @deprecated
  * @description The interface for wrapped property descriptor.
  * @export
  * @interface WrappedPropertyDescriptor
