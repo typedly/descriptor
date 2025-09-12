@@ -1,7 +1,7 @@
 // Type.
-import { ChainedDescriptor } from './wrapped-descriptor.type';
+import { ChainedPropertyDescriptor } from './chained-property-descriptor.type';
 // Interface.
-import { ChainedDescriptorAttributes } from './wrapped-descriptor-attributes.interface';
+import { ChainedDescriptorAttributes } from './chained-descriptor-attributes.interface';
 /**
  * @description
  * @export
@@ -11,7 +11,7 @@ import { ChainedDescriptorAttributes } from './wrapped-descriptor-attributes.int
  * @template {PropertyKey} P 
  * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] 
  * @template {ChainedDescriptorAttributes<O, K, P, V>} [A=ChainedDescriptorAttributes<O, K, P, V>] 
- * @template {ChainedDescriptor<O, K, P, V, A, any> | PropertyDescriptor} [D=ChainedDescriptor<O, K, P, V, A, any>] 
+ * @template {ChainedPropertyDescriptor<O, K, P, V, A, any> | PropertyDescriptor} [D=ChainedPropertyDescriptor<O, K, P, V, A, any>] 
  */
 export interface ChainedDescriptorChain<
   // Object.
@@ -25,7 +25,7 @@ export interface ChainedDescriptorChain<
   // Wrapped descriptor attributes.
   A extends ChainedDescriptorAttributes<O, K, P, V> = ChainedDescriptorAttributes<O, K, P, V>,
   // Wrapped descriptor.
-  D extends ChainedDescriptor<O, K, P, V, A, any> | PropertyDescriptor = ChainedDescriptor<O, K, P, V, A, any>
+  D extends ChainedPropertyDescriptor<O, K, P, V, A, any> | PropertyDescriptor = ChainedPropertyDescriptor<O, K, P, V, A, any>
 > {
   /**
    * @description Whether the chain is active.

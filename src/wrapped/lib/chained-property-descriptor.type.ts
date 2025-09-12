@@ -1,7 +1,7 @@
 // Type.
 import { AttributedDescriptor } from '../../lib/type/attributed-descriptor.type';
 // Interface.
-import { ChainedDescriptorAttributes } from './wrapped-descriptor-attributes.interface'
+import { ChainedDescriptorAttributes } from './chained-descriptor-attributes.interface'
 /**
  * @description The customizable property descriptor that wraps another property descriptor.
  * @export
@@ -10,15 +10,15 @@ import { ChainedDescriptorAttributes } from './wrapped-descriptor-attributes.int
  * @template {PropertyKey} P The type of the private key used for backing storage.
  * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] The type of the value of the property.
  * @template {ChainedDescriptorAttributes<O, K, V>} [A=ChainedDescriptorAttributes<O, K, V>] 
- * @template {ChainedDescriptor<O, K, V, A, D> | PropertyDescriptor} [D=ChainedDescriptor<O, K, V, A, any>] 
+ * @template {ChainedPropertyDescriptor<O, K, V, A, D> | PropertyDescriptor} [D=ChainedPropertyDescriptor<O, K, V, A, any>] 
  */
-export type ChainedDescriptor<
+export type ChainedPropertyDescriptor<
   O,
   K extends keyof O,
   P extends PropertyKey,
   V extends K extends keyof O ? O[K] : any = K extends keyof O ? O[K] : any,
   A extends ChainedDescriptorAttributes<O, K, P, V> = ChainedDescriptorAttributes<O, K, P, V>,
-  D extends ChainedDescriptor<O, K, P, V, A, any> | PropertyDescriptor = ChainedDescriptor<O, K, P, V, A, any>
+  D extends ChainedPropertyDescriptor<O, K, P, V, A, any> | PropertyDescriptor = ChainedPropertyDescriptor<O, K, P, V, A, any>
 > = AttributedDescriptor<O, K, V, Omit<A, 'set' | 'get'>> & {
   /**
    * @description The previous descriptor of the property for unwrapping.

@@ -1,7 +1,7 @@
-import { WrappedDescriptorAttributes } from '../lib';
+import { ChainedDescriptorAttributes } from '../lib';
 import { User } from '../../test/user.test';
 
-const example: WrappedDescriptorAttributes<User, 'name', '_name'> = {
+const example: ChainedDescriptorAttributes<User, 'name', '_name'> = {
   configurable: true,
   enumerable: true,
   set(this: User, value: string): void {

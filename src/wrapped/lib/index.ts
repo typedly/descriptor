@@ -1,3 +1,3 @@
-export type { ChainedDescriptor } from './wrapped-descriptor.type';
-export type { ChainedDescriptorAttributes } from './wrapped-descriptor-attributes.interface';
-export type { ChainedDescriptorChain } from './wrapped-descriptor-chain.interface';
+export type { ChainedPropertyDescriptor as ChainedDescriptor } from './chained-property-descriptor.type';
+export type { ChainedDescriptorAttributes } from './chained-descriptor-attributes.interface';
+export type { ChainedDescriptorChain } from './chained-descriptor-chain.interface';

@@ -1,8 +1,8 @@
-import { WrappedDescriptor } from '../lib';
+import { ChainedPropertyDescriptor } from '../lib';
 import { User, userClass } from '../../test/user.test';
 
-// WrappedDescriptor<User, "name">
-const example: WrappedDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
+// ChainedDescriptor<UserClass, "name", "_name" | "_age">
+const example: ChainedPropertyDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
   configurable: true,
   enumerable: true,
   privateKey: '_name',
