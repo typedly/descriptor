@@ -7,7 +7,11 @@ const obj: Person = {
   age: 30,
 };
 
-const example: AccessorPropertyDescriptor<string, true, true> = {
+const example: AccessorPropertyDescriptor<
+  string, // type of value
+  true, // configurable
+  true // enumerable
+> = {
   configurable: true,
   enumerable: true,
   get() {
