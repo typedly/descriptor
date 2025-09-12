@@ -9,6 +9,7 @@ export type {
   KeyedAccessorPropertyDescriptor,
   PropertyDescriptorChain,
   PropertyDescriptors,
+  WrappedPropertyDescriptor,
   // Type.
   AnyPropertyDescriptor,
   AttributedPropertyDescriptor,
