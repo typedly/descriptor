@@ -89,6 +89,27 @@ Represents an accessor property descriptor with its unique optional `get()` and 
 
 ```typescript
 import { AccessorPropertyDescriptor } from '@typedly/descriptor';
+
+// Apply the descriptor to an object
+const obj: Person = {
+  name: "Jane",
+  age: 30,
+};
+
+const example: AccessorPropertyDescriptor<
+  string, // type of value
+  true, // configurable
+  true // enumerable
+> = {
+  configurable: true,
+  enumerable: true,
+  get() {
+    return "example";
+  },
+  set(value: string) {
+    console.log(`Setting value: ${value}`);
+  },
+};
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-property-descriptor.interface.ts)
@@ -263,6 +284,66 @@ The customizable property descriptor that wraps another property descriptor.
 
 ```typescript
 import { WrappedDescriptor } from '@typedly/descriptor';
+
+export interface User {
+  name: string;
+  age: number;
+  email: string;
+  isActive: boolean;
+  createdAt: Date;
+  roles: string[];
+  address?: {
+    street: string;
+    city: string;
+    zipCode: string;
+    country: string;
+  };
+}
+
+export class UserClass implements User {
+  name: string = '';
+  age: number = 0;
+  email: string = '';
+  isActive: boolean = false;
+  createdAt: Date = new Date();
+  roles: string[] = [];
+  address?: {
+    street: string;
+    city: string;
+    zipCode: string;
+    country: string;
+  } = undefined;
+}
+
+export const userClass = new UserClass();
+
+// WrappedDescriptor<UserClass, "name", "_name" | "_age">
+const example: WrappedDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
+  configurable: true,
+  enumerable: true,
+  privateKey: '_name',
+  enabled: true,
+  active: { onGet: true, onSet: true },
+  onGet(this: User, key, value, previousValue, target) {
+    console.log(`Getting ${String(key)}: ${value}`);
+    return value;
+  },
+  onSet(value, previousValue, key, instance) {
+    console.log(`Setting ${String(key)}: ${value}`);
+    return value;
+  },
+  set(value, descriptor) {
+    if (!descriptor?.enabled) return; // Property is disabled; do nothing
+    if (descriptor?.active && descriptor?.onSet) {
+      descriptor.onSet.call(this, value, '', 'name', this);
+    } else {
+      // Assign only if privateKey is a string and matches a key of User
+      if (typeof descriptor.privateKey === 'string' && descriptor.privateKey in this) {
+        descriptor.privateKey === '_name' && (this[descriptor.privateKey] = value);
+      }
+    }
+  }
+};
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/wrapped/lib/wrapped-descriptor.type.ts)
@@ -342,6 +423,7 @@ MIT © typedly ([license][typedly-license])
 - **[@typescript-package/wrap-descriptor](https://github.com/typescript-package/wrap-descriptor)**: A **TypeScript** package for wrapping object descriptors.
 - **[@typescript-package/wrap-property](https://github.com/typescript-package/wrap-property)**: A **TypeScript** package for wrapping object properties.
 - **[@typescript-package/wrapped-descriptor](https://github.com/typescript-package/wrapped-descriptor)**: A lightweight **TypeScript** library for wrapped property descriptor.
+
 - **[@xtypescript/property](https://github.com/xtypescript/property)** - A comprehensive, reactive **TypeScript** library for precise and extensible object property control.
 
 <!-- This package: typedly  -->
