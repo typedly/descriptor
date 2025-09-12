@@ -124,6 +124,16 @@ import { CommonPropertyDescriptor } from '@typedly/descriptor';
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-property-descriptor.interface.ts)
 
+#### `ChainedDescriptorAttributes`
+
+The attributes for the `ChainedPropertyDescriptor` type.
+
+```typescript
+import { ChainedDescriptorAttributes } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/chained/lib/chained-descriptor-attributes.type.ts)
+
 #### `DataPropertyDescriptor`
 
 Represents a data property descriptor, which describes the attributes of a property that holds a specific `value`.
@@ -337,16 +347,6 @@ import { ThisAccessorPropertyDescriptor } from '@typedly/descriptor';
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/this-accessor-property-descriptor.type.ts)
-
-#### `ChainedDescriptorAttributes`
-
-The attributes for the `ChainedPropertyDescriptor` type.
-
-```typescript
-import { ChainedDescriptorAttributes } from '@typedly/descriptor';
-```
-
-[Source](https://github.com/typedly/descriptor/blob/main/src/chained/lib/chained-descriptor-attributes.type.ts)
 
 ## Contributing
 
