@@ -3,7 +3,7 @@ import { AttributedDescriptor } from '../../lib/type/attributed-descriptor.type'
 // Interface.
 import { ChainedDescriptorAttributes } from './chained-descriptor-attributes.interface'
 /**
- * @description The customizable property descriptor that wraps another property descriptor.
+ * @description The customizable property descriptor that has another property descriptor.
  * @export
  * @template O
  * @template {keyof O} K The type of the key of the object.
@@ -21,7 +21,7 @@ export type ChainedPropertyDescriptor<
   D extends ChainedPropertyDescriptor<O, K, P, V, A, any> | PropertyDescriptor = ChainedPropertyDescriptor<O, K, P, V, A, any>
 > = AttributedDescriptor<O, K, V, Omit<A, 'set' | 'get'>> & {
   /**
-   * @description The previous descriptor of the property for unwrapping.
+   * @description The previous descriptor of the property for unchaining.
    * @type {?D}
    */
   previous?: D;
