@@ -33,38 +33,33 @@ export interface PropertyDescriptorChain<
 > {
   /**
    * @description Whether the chain is active.
-   * @readonly
    * @type {A}
    */
-  get active(): A;
+  active: A;
 
   /**
    * @description Gets the current descriptor in the chain.
-   * @readonly
    * @returns {D} The current descriptor or undefined if not found.
    */
-  get current(): D;
+  current: D;
 
   /**
    * @description Whether the chain is enabled.
-   * @readonly
    * @type {N}
    */
-  get enabled(): N;
+  enabled: N;
 
   /**
    * @description The last index of descriptors in the chain.
-   * @readonly
    * @type {number}
    */
-  get lastIndex(): number;
+  lastIndex: number;
 
   /**
    * @description The number of descriptors in the chain.
-   * @readonly
    * @type {number}
    */
-  get size(): number;
+  size: number;
 
   /**
    * @description Adds a new property descriptor to the chain.
