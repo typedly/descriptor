@@ -5,8 +5,7 @@
   "description": "A TypeScript type definitions package for property descriptor.",
   "license": "MIT",
   "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "access": "public"
   },
   "peerDependencies": {
     "@typedly/callback": "^1.0.0"
