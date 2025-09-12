@@ -188,7 +188,7 @@ const attributes: AugmentedDescriptorAttributes<User, 'name', '_name'> = {
 }
 ```
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/augmented/lib/augmented-descriptor-attributes.type.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/augmented/lib/augmented-descriptor-attributes.interface.ts)
 
 #### `DataPropertyDescriptor`
 
