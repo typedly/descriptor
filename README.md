@@ -27,7 +27,7 @@ A **TypeScript** type definitions package for **property descriptor**.
       - [`AccessorPropertyDescriptor`](#accessorpropertydescriptor)
       - [`CommonPropertyDescriptor`](#commonpropertydescriptor)
       - [`DataPropertyDescriptor`](#datapropertydescriptor)
-      - [`KeyedPropertyDescriptor`](#keyedaccessorpropertydescriptor)
+      - [`KeyedAccessorPropertyDescriptor`](#keyedaccessorpropertydescriptor)
       - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
     - Other
       - [`PropertyDescriptorChain`](#propertydescriptorchain)
@@ -322,8 +322,24 @@ The customizable property descriptor.
 import { AugmentedPropertyDescriptor } from '@typedly/descriptor';
 import { User, userClass } from './user.test';
 
+// Create custom attributes.
+interface CustomAttributes<
+  O,
+  K extends keyof O,
+  P extends PropertyKey,
+  V extends K extends keyof O ? O[K] : any = K extends keyof O ? O[K] : any,
+> extends AugmentedDescriptorAttributes<O, K, P, V> {
+  'customAttribute'?: string;
+}
+
 // AugmentedPropertyDescriptor<UserClass, "name", "_name" | "_age">
-const example: AugmentedPropertyDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
+const example: AugmentedPropertyDescriptor<
+  typeof userClass, // object
+  'name', // key
+  '_name' | '_age', // private key
+  string, // value
+  CustomAttributes<typeof userClass, 'name', '_name' | '_age', string>, // attributes
+> = {
   configurable: true,
   enumerable: true,
   privateKey: '_name',
@@ -347,7 +363,8 @@ const example: AugmentedPropertyDescriptor<typeof userClass, 'name', '_name' | '
         descriptor.privateKey === '_name' && (this[descriptor.privateKey] = value);
       }
     }
-  }
+  },
+  'customAttribute': 'This is a custom attribute',
 };
 ```
 
