@@ -21,26 +21,26 @@ A **TypeScript** type definitions package for **property descriptor**.
 - [Installation](#installation)
 - [Api](#api)
   - [Interfaces](#interfaces)
-    - **Attributes**
-    - [`AugmentedDescriptorAttributes`](#augmenteddescriptorattributes)
-    - **Descriptor**
-    - [`AccessorPropertyDescriptor`](#accessorpropertydescriptor)
-    - [`CommonPropertyDescriptor`](#commonpropertydescriptor)
-    - [`DataPropertyDescriptor`](#datapropertydescriptor)
-    - [`KeyedPropertyDescriptor`](#keyedaccessorpropertydescriptor)
-    - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
-    - **Other**
+    - Attributes
+      - [`AugmentedDescriptorAttributes`](#augmenteddescriptorattributes)
+    - Descriptor
+      - [`AccessorPropertyDescriptor`](#accessorpropertydescriptor)
+      - [`CommonPropertyDescriptor`](#commonpropertydescriptor)
+      - [`DataPropertyDescriptor`](#datapropertydescriptor)
+      - [`KeyedPropertyDescriptor`](#keyedaccessorpropertydescriptor)
+      - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
+    - Other
     - [`PropertyDescriptorChain`](#propertydescriptorchain)
     - [`PropertyDescriptors`](#propertydescriptors)
   - [Types](#types)
-    - **Descriptor**
-    - [`AnyPropertyDescriptor`](#anypropertydescriptor)
-    - [`AttributedPropertyDescriptor`](#attributedpropertydescriptor)
-    - [`AugmentedPropertyDescriptor`](#augmentedpropertydescriptor)
-    - [`StrictPropertyDescriptor`](#strictpropertydescriptor)
-    - [`ThisAccessorPropertyDescriptor`](#thisaccessorpropertydescriptor)
-    - **OTher**
-    - [`ObjectPropertyDescriptors`](#objectpropertydescriptors)
+    - Descriptor
+      - [`AnyPropertyDescriptor`](#anypropertydescriptor)
+      - [`AttributedPropertyDescriptor`](#attributedpropertydescriptor)
+      - [`AugmentedPropertyDescriptor`](#augmentedpropertydescriptor)
+      - [`StrictPropertyDescriptor`](#strictpropertydescriptor)
+      - [`ThisAccessorPropertyDescriptor`](#thisaccessorpropertydescriptor)
+    - OTher
+      - [`ObjectPropertyDescriptors`](#objectpropertydescriptors)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -168,7 +168,7 @@ import { CommonPropertyDescriptor } from '@typedly/descriptor';
 
 #### `AugmentedDescriptorAttributes`
 
-The attributes for the `ChainedPropertyDescriptor` type.
+The attributes for the `AugmentedPropertyDescriptor` type.
 
 ```typescript
 import { AugmentedDescriptorAttributes } from '@typedly/descriptor';
@@ -188,7 +188,7 @@ const attributes: AugmentedDescriptorAttributes<User, 'name', '_name'> = {
 }
 ```
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/chained/lib/chained-descriptor-attributes.type.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/augmented/lib/augmented-descriptor-attributes.type.ts)
 
 #### `DataPropertyDescriptor`
 
@@ -235,7 +235,7 @@ import { PropertyDescriptors } from '@typedly/descriptor';
 The interface for wrapped property descriptor.
 
 > **Note:**  
-> The generic parameter `D` is now constrained to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, D> | PropertyDescriptor`, with the default set to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>`.  
+> The generic parameter `D` is now constrained to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, any> | PropertyDescriptor`, with the default set to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>`.  
 > The `descriptor` parameter in the `set` and `get` methods is always a `WrappedPropertyDescriptor`.  
 > The `previousDescriptor` property is typically a `WrappedPropertyDescriptor`, except for the initial wrap, where it may be a plain `PropertyDescriptor` (to support chaining from a base data descriptor).
 
