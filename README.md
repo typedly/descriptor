@@ -21,20 +21,26 @@ A **TypeScript** type definitions package for **property descriptor**.
 - [Installation](#installation)
 - [Api](#api)
   - [Interfaces](#interfaces)
+    - **Attributes**
+    - [`AugmentedDescriptorAttributes`](#augmenteddescriptorattributes)
+    - **Descriptor**
     - [`AccessorPropertyDescriptor`](#accessorpropertydescriptor)
-    - [`ChainedDescriptorAttributes`](#chaineddescriptorattributes)
     - [`CommonPropertyDescriptor`](#commonpropertydescriptor)
     - [`DataPropertyDescriptor`](#datapropertydescriptor)
-    - `DescriptorAttributes`
+    - [`KeyedPropertyDescriptor`](#keyedaccessorpropertydescriptor)
+    - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
+    - **Other**
     - [`PropertyDescriptorChain`](#propertydescriptorchain)
     - [`PropertyDescriptors`](#propertydescriptors)
-    - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
   - [Types](#types)
+    - **Descriptor**
     - [`AnyPropertyDescriptor`](#anypropertydescriptor)
-    - [`ChainedPropertyDescriptor`](#chainedpropertydescriptor)
-    - [`ObjectPropertyDescriptors`](#objectpropertydescriptors)
+    - [`AttributedPropertyDescriptor`](#attributedpropertydescriptor)
+    - [`AugmentedPropertyDescriptor`](#augmentedpropertydescriptor)
     - [`StrictPropertyDescriptor`](#strictpropertydescriptor)
     - [`ThisAccessorPropertyDescriptor`](#thisaccessorpropertydescriptor)
+    - **OTher**
+    - [`ObjectPropertyDescriptors`](#objectpropertydescriptors)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -81,6 +87,42 @@ import {
 } from '@typedly/descriptor';
 ```
 
+### Example data
+
+```typescript
+// user.test.ts
+
+export interface User {
+  name: string;
+  age: number;
+  email: string;
+  isActive: boolean;
+  createdAt: Date;
+  roles: string[];
+  address?: {
+    street: string;
+    city: string;
+    zipCode: string;
+    country: string;
+  };
+}
+
+export class UserClass implements User {
+  name: string = '';
+  age: number = 0;
+  email: string = '';
+  isActive: boolean = false;
+  createdAt: Date = new Date();
+  roles: string[] = [];
+  address?: {
+    street: string;
+    city: string;
+    zipCode: string;
+    country: string;
+  } = undefined;
+}
+```
+
 ### Interfaces
 
 #### `AccessorPropertyDescriptor`
@@ -124,12 +166,26 @@ import { CommonPropertyDescriptor } from '@typedly/descriptor';
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-property-descriptor.interface.ts)
 
-#### `ChainedDescriptorAttributes`
+#### `AugmentedDescriptorAttributes`
 
 The attributes for the `ChainedPropertyDescriptor` type.
 
 ```typescript
-import { ChainedDescriptorAttributes } from '@typedly/descriptor';
+import { AugmentedDescriptorAttributes } from '@typedly/descriptor';
+import { User } from './user.test';
+
+// AugmentedDescriptorAttributes<User, "name", "_name", string>
+const attributes: AugmentedDescriptorAttributes<User, 'name', '_name'> = {
+  configurable: true,
+  enumerable: true,
+  set(this: User, value: string): void {
+    (this as any)._name = value;
+  },
+  get(): string {
+    return (this as any)._name;
+  },
+  privateKey: '_name',
+}
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/chained/lib/chained-descriptor-attributes.type.ts)
@@ -144,15 +200,15 @@ import { DataPropertyDescriptor } from '@typedly/descriptor';
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
 
-#### `DescriptorAttributes`
+#### `KeyedAccessorPropertyDescriptor`
 
-The attributes for the attributed property descriptor.
+The accessor property descriptor of the specified object `O` and key `K`.
 
 ```typescript
-import { DescriptorAttributes } from '@typedly/descriptor';
+import { KeyedAccessorPropertyDescriptor } from '@typedly/descriptor';
 ```
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/descriptor-attributes.interface.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/keyed-accessor-property-descriptor.interface.ts)
 
 #### `PropertyDescriptorChain`
 
@@ -185,10 +241,7 @@ The interface for wrapped property descriptor.
 
 ```typescript
 import { WrappedPropertyDescriptor } from '@typedly/descriptor';
-
-interface User {
-  name: string;
-}
+import { User, userClass } from './user.test';
 
 const example: WrappedPropertyDescriptor<User, 'name'> = {
   configurable: true,
@@ -238,57 +291,39 @@ import { AnyPropertyDescriptor } from '@typedly/descriptor';
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/any-property-descriptor.type.ts)
 
-#### `AttributedDescriptor`
+#### `AttributedPropertyDescriptor`
 
 The attributed property descriptor for attributes customization.
 
 ```typescript
-import { AttributedDescriptor } from '@typedly/descriptor';
+import { AttributedPropertyDescriptor } from '@typedly/descriptor';
+import { userClass } from './user.test';
+
+// AttributedPropertyDescriptor<User, "name", string>
+const attributedDescriptor: AttributedPropertyDescriptor<typeof userClass, 'name', string> = {
+  configurable: true,
+  enumerable: true,
+  get(this: typeof userClass) {
+    return this.name;
+  },
+  set(this: typeof userClass, value: string) {
+    this.name = value;
+  },
+};
 ```
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/attributed-descriptor.type.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/attributed-property-descriptor.type.ts)
 
-#### `ChainedPropertyDescriptor`
+#### `AugmentedPropertyDescriptor`
 
-The customizable property descriptor that wraps another property descriptor.
+The customizable property descriptor.
 
 ```typescript
-import { ChainedPropertyDescriptor } from '@typedly/descriptor';
+import { AugmentedPropertyDescriptor } from '@typedly/descriptor';
+import { User, userClass } from './user.test';
 
-export interface User {
-  name: string;
-  age: number;
-  email: string;
-  isActive: boolean;
-  createdAt: Date;
-  roles: string[];
-  address?: {
-    street: string;
-    city: string;
-    zipCode: string;
-    country: string;
-  };
-}
-
-export class UserClass implements User {
-  name: string = '';
-  age: number = 0;
-  email: string = '';
-  isActive: boolean = false;
-  createdAt: Date = new Date();
-  roles: string[] = [];
-  address?: {
-    street: string;
-    city: string;
-    zipCode: string;
-    country: string;
-  } = undefined;
-}
-
-export const userClass = new UserClass();
-
-// ChainedPropertyDescriptor<UserClass, "name", "_name" | "_age">
-const example: ChainedPropertyDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
+// AugmentedPropertyDescriptor<UserClass, "name", "_name" | "_age">
+const example: AugmentedPropertyDescriptor<typeof userClass, 'name', '_name' | '_age'> = {
   configurable: true,
   enumerable: true,
   privateKey: '_name',
@@ -316,7 +351,7 @@ const example: ChainedPropertyDescriptor<typeof userClass, 'name', '_name' | '_a
 };
 ```
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/chained/lib/chained-property-descriptor.type.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/augmented/lib/augmented-property-descriptor.type.ts)
 
 #### `ObjectPropertyDescriptors`
 
@@ -423,7 +458,6 @@ MIT © typedly ([license][typedly-license])
 - **[@typescript-package/wrap-descriptor](https://github.com/typescript-package/wrap-descriptor)**: A **TypeScript** package for wrapping object descriptors.
 - **[@typescript-package/wrap-property](https://github.com/typescript-package/wrap-property)**: A **TypeScript** package for wrapping object properties.
 - **[@typescript-package/wrapped-descriptor](https://github.com/typescript-package/wrapped-descriptor)**: A lightweight **TypeScript** library for wrapped property descriptor.
-
 - **[@xtypescript/property](https://github.com/xtypescript/property)** - A comprehensive, reactive **TypeScript** library for precise and extensible object property control.
 
 <!-- This package: typedly  -->
