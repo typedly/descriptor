@@ -277,7 +277,7 @@ const example: WrappedPropertyDescriptor<User, 'name'> = {
 
 You can use this descriptor with a property wrapper system to intercept and customize property behavior on your objects. The simple wrap property class is available in the package [`@typescript-package/wrap-property`](https://github.com/typescript-package/wrap-property)
 
-[Source](https://github.com/typedly/descriptor/blob/main/src/wrapped/lib/wrapped-property-descriptor.interface.ts)
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/wrapped-property-descriptor.interface.ts)
 
 ### Types
 
