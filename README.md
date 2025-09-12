@@ -21,17 +21,26 @@ A **TypeScript** type definitions package for **property descriptor**.
 - [Installation](#installation)
 - [Api](#api)
   - [Interfaces](#interfaces)
-    - `AccessorPropertyDescriptor`
-    - `CommonPropertyDescriptor`
-    - `DataPropertyDescriptor`
-    - `PropertyDescriptorChain`
-    - `PropertyDescriptors`
-    - `WrappedPropertyDescriptor`
+    - Attributes
+      - [`AugmentedDescriptorAttributes`](#augmenteddescriptorattributes)
+    - Descriptor
+      - [`AccessorPropertyDescriptor`](#accessorpropertydescriptor)
+      - [`CommonPropertyDescriptor`](#commonpropertydescriptor)
+      - [`DataPropertyDescriptor`](#datapropertydescriptor)
+      - [`KeyedAccessorPropertyDescriptor`](#keyedaccessorpropertydescriptor)
+      - [`WrappedPropertyDescriptor`](#wrappedpropertydescriptor)
+    - Other
+      - [`PropertyDescriptorChain`](#propertydescriptorchain)
+      - [`PropertyDescriptors`](#propertydescriptors)
   - [Types](#types)
-    - `AnyPropertyDescriptor`
-    - `ObjectPropertyDescriptors`
-    - `StrictPropertyDescriptor`
-    - `ThisAccessorPropertyDescriptor`
+    - Descriptor
+      - [`AnyPropertyDescriptor`](#anypropertydescriptor)
+      - [`AttributedPropertyDescriptor`](#attributedpropertydescriptor)
+      - [`AugmentedPropertyDescriptor`](#augmentedpropertydescriptor)
+      - [`StrictPropertyDescriptor`](#strictpropertydescriptor)
+      - [`ThisAccessorPropertyDescriptor`](#thisaccessorpropertydescriptor)
+    - Other
+      - [`ObjectPropertyDescriptors`](#objectpropertydescriptors)
 - [Contributing](#contributing)
 - [Support](#support)
 - [Code of Conduct](#code-of-conduct)
@@ -61,17 +70,57 @@ npm install @typedly/descriptor --save-peer
 import {
   // Interface.
   AccessorPropertyDescriptor,
+  AugmentedDescriptorAttributes,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
+  KeyedAccessorPropertyDescriptor,
   PropertyDescriptorChain,
-  PropertyDescriptors, // v5.2.0
+  PropertyDescriptors,
   WrappedPropertyDescriptor,
   // Type.
   AnyPropertyDescriptor,
+  AttributedPropertyDescriptor,
+  AugmentedPropertyDescriptor,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
-  ThisAccessorPropertyDescriptor
+  ThisAccessorPropertyDescriptor,
 } from '@typedly/descriptor';
+```
+
+### Example data
+
+```typescript
+// user.test.ts
+
+export interface User {
+  name: string;
+  age: number;
+  email: string;
+  isActive: boolean;
+  createdAt: Date;
+  roles: string[];
+  address?: {
+    street: string;
+    city: string;
+    zipCode: string;
+    country: string;
+  };
+}
+
+export class UserClass implements User {
+  name: string = '';
+  age: number = 0;
+  email: string = '';
+  isActive: boolean = false;
+  createdAt: Date = new Date();
+  roles: string[] = [];
+  address?: {
+    street: string;
+    city: string;
+    zipCode: string;
+    country: string;
+  } = undefined;
+}
 ```
 
 ### Interfaces
@@ -82,6 +131,27 @@ Represents an accessor property descriptor with its unique optional `get()` and 
 
 ```typescript
 import { AccessorPropertyDescriptor } from '@typedly/descriptor';
+
+// Apply the descriptor to an object
+const obj: Person = {
+  name: "Jane",
+  age: 30,
+};
+
+const example: AccessorPropertyDescriptor<
+  string, // type of value
+  true, // configurable
+  true // enumerable
+> = {
+  configurable: true,
+  enumerable: true,
+  get() {
+    return "example";
+  },
+  set(value: string) {
+    console.log(`Setting value: ${value}`);
+  },
+};
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/accessor-property-descriptor.interface.ts)
@@ -96,6 +166,30 @@ import { CommonPropertyDescriptor } from '@typedly/descriptor';
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/common-property-descriptor.interface.ts)
 
+#### `AugmentedDescriptorAttributes`
+
+The attributes for the `AugmentedPropertyDescriptor` type.
+
+```typescript
+import { AugmentedDescriptorAttributes } from '@typedly/descriptor';
+import { User } from './user.test';
+
+// AugmentedDescriptorAttributes<User, "name", "_name", string>
+const attributes: AugmentedDescriptorAttributes<User, 'name', '_name'> = {
+  configurable: true,
+  enumerable: true,
+  set(this: User, value: string): void {
+    (this as any)._name = value;
+  },
+  get(): string {
+    return (this as any)._name;
+  },
+  privateKey: '_name',
+}
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/augmented/lib/augmented-descriptor-attributes.type.ts)
+
 #### `DataPropertyDescriptor`
 
 Represents a data property descriptor, which describes the attributes of a property that holds a specific `value`.
@@ -105,6 +199,16 @@ import { DataPropertyDescriptor } from '@typedly/descriptor';
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/data-property-descriptor.interface.ts)
+
+#### `KeyedAccessorPropertyDescriptor`
+
+The accessor property descriptor of the specified object `O` and key `K`.
+
+```typescript
+import { KeyedAccessorPropertyDescriptor } from '@typedly/descriptor';
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/interface/keyed-accessor-property-descriptor.interface.ts)
 
 #### `PropertyDescriptorChain`
 
@@ -131,16 +235,13 @@ import { PropertyDescriptors } from '@typedly/descriptor';
 The interface for wrapped property descriptor.
 
 > **Note:**  
-> The generic parameter `D` is now constrained to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, D> | PropertyDescriptor`, with the default set to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>`.  
+> The generic parameter `D` is now constrained to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, any> | PropertyDescriptor`, with the default set to `WrappedPropertyDescriptor<O, K, V, A, N, C, E, any>`.  
 > The `descriptor` parameter in the `set` and `get` methods is always a `WrappedPropertyDescriptor`.  
 > The `previousDescriptor` property is typically a `WrappedPropertyDescriptor`, except for the initial wrap, where it may be a plain `PropertyDescriptor` (to support chaining from a base data descriptor).
 
 ```typescript
 import { WrappedPropertyDescriptor } from '@typedly/descriptor';
-
-interface User {
-  name: string;
-}
+import { User, userClass } from './user.test';
 
 const example: WrappedPropertyDescriptor<User, 'name'> = {
   configurable: true,
@@ -189,6 +290,85 @@ import { AnyPropertyDescriptor } from '@typedly/descriptor';
 ```
 
 [Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/any-property-descriptor.type.ts)
+
+#### `AttributedPropertyDescriptor`
+
+The attributed property descriptor for attributes customization.
+
+```typescript
+import { AttributedPropertyDescriptor } from '@typedly/descriptor';
+import { userClass } from './user.test';
+
+// AttributedPropertyDescriptor<User, "name", string>
+const attributedDescriptor: AttributedPropertyDescriptor<typeof userClass, 'name', string> = {
+  configurable: true,
+  enumerable: true,
+  get(this: typeof userClass) {
+    return this.name;
+  },
+  set(this: typeof userClass, value: string) {
+    this.name = value;
+  },
+};
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/lib/type/attributed-property-descriptor.type.ts)
+
+#### `AugmentedPropertyDescriptor`
+
+The customizable property descriptor.
+
+```typescript
+import { AugmentedPropertyDescriptor } from '@typedly/descriptor';
+import { User, userClass } from './user.test';
+
+// Create custom attributes.
+interface CustomAttributes<
+  O,
+  K extends keyof O,
+  P extends PropertyKey,
+  V extends K extends keyof O ? O[K] : any = K extends keyof O ? O[K] : any,
+> extends AugmentedDescriptorAttributes<O, K, P, V> {
+  'customAttribute'?: string;
+}
+
+// AugmentedPropertyDescriptor<UserClass, "name", "_name" | "_age">
+const example: AugmentedPropertyDescriptor<
+  typeof userClass, // object
+  'name', // key
+  '_name' | '_age', // private key
+  string, // value
+  CustomAttributes<typeof userClass, 'name', '_name' | '_age', string>, // attributes
+> = {
+  configurable: true,
+  enumerable: true,
+  privateKey: '_name',
+  enabled: true,
+  active: { onGet: true, onSet: true },
+  onGet(this: User, key, value, previousValue, target) {
+    console.log(`Getting ${String(key)}: ${value}`);
+    return value;
+  },
+  onSet(value, previousValue, key, instance) {
+    console.log(`Setting ${String(key)}: ${value}`);
+    return value;
+  },
+  set(value, descriptor) {
+    if (!descriptor?.enabled) return; // Property is disabled; do nothing
+    if (descriptor?.active && descriptor?.onSet) {
+      descriptor.onSet.call(this, value, '', 'name', this);
+    } else {
+      // Assign only if privateKey is a string and matches a key of User
+      if (typeof descriptor.privateKey === 'string' && descriptor.privateKey in this) {
+        descriptor.privateKey === '_name' && (this[descriptor.privateKey] = value);
+      }
+    }
+  },
+  'customAttribute': 'This is a custom attribute',
+};
+```
+
+[Source](https://github.com/typedly/descriptor/blob/main/src/augmented/lib/augmented-property-descriptor.type.ts)
 
 #### `ObjectPropertyDescriptors`
 

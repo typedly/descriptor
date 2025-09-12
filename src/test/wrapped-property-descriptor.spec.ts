@@ -1,13 +1,11 @@
 import { WrappedPropertyDescriptor } from '../lib';
+import { User } from './user.test';
 
-interface User {
-  name: string;
-}
-
+// const example: WrappedPropertyDescriptor<User, "name", string, boolean, boolean, boolean, boolean, WrappedPropertyDescriptor<User, "name", string, boolean, boolean, boolean, boolean, any>>
 const example: WrappedPropertyDescriptor<User, 'name'> = {
   configurable: true,
   enumerable: true,
-  privateKey: Symbol('name'),
+  privateKey: '_name',
   enabled: true,
   active: { onGet: true, onSet: true },
   onGet(this: User, key, value, previousValue, target) {
@@ -23,7 +21,10 @@ const example: WrappedPropertyDescriptor<User, 'name'> = {
     if (descriptor?.active && descriptor?.onSet) {
       descriptor.onSet.call(this, value, '', 'name', this);
     } else {
-      descriptor.privateKey && (this[descriptor.privateKey as keyof User] = value);
+      // Assign only if privateKey is a string and matches a key of User
+      if (typeof descriptor.privateKey === 'string' && descriptor.privateKey in this) {
+        (this as { [key: string]: any })[descriptor.privateKey] = value;
+      }
     }
   }
 };

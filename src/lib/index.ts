@@ -3,6 +3,7 @@ export type {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
+  KeyedAccessorPropertyDescriptor,
   PropertyDescriptorChain,
   PropertyDescriptors,
   WrappedPropertyDescriptor
@@ -10,6 +11,7 @@ export type {
 // Type.
 export type { 
   AnyPropertyDescriptor,
+  AttributedPropertyDescriptor,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
   ThisAccessorPropertyDescriptor

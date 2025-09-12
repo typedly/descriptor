@@ -6,13 +6,22 @@ export type {
   AccessorPropertyDescriptor,
   CommonPropertyDescriptor,
   DataPropertyDescriptor,
-  PropertyDescriptors,
+  KeyedAccessorPropertyDescriptor,
   PropertyDescriptorChain,
+  PropertyDescriptors,
   WrappedPropertyDescriptor,
-
   // Type.
   AnyPropertyDescriptor,
+  AttributedPropertyDescriptor,
   ObjectPropertyDescriptors,
   StrictPropertyDescriptor,
-  ThisAccessorPropertyDescriptor
+  ThisAccessorPropertyDescriptor,
 } from './lib';
+
+// Augmented.
+export type {
+  // Interface.
+  AugmentedDescriptorAttributes,
+  // Type.
+  AugmentedPropertyDescriptor
+} from './augmented';
