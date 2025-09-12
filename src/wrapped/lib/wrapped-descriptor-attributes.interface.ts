@@ -5,14 +5,14 @@ import { GetterCallback, SetterCallback } from "@typedly/callback";
 /**
  * @description The attributes for the `WrappedDescriptor` type.
  * @export
- * @interface WrappedDescriptorAttributes
+ * @interface ChainedDescriptorAttributes
  * @template O The type of the object that `this` refers to in the `get()` and `set()` methods.
  * @template {keyof O} K The key type constrained by the object `O`.
  * @template {PropertyKey} P The private property key type, typically a string, number, or symbol.
  * @template {K extends keyof O ? O[K] : any} [V=K extends keyof O ? O[K] : any] The value type of the property.
  * @extends {DescriptorAttributes<O, K, V, boolean, boolean>}
  */
-export interface WrappedDescriptorAttributes<
+export interface ChainedDescriptorAttributes<
   O,
   K extends keyof O,
   P extends PropertyKey,
